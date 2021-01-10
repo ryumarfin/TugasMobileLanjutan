@@ -81,6 +81,7 @@
             android:singleLine="true" />
 
         <Button
+            android:onClick="RegistertoSparepartPage1"
             android:id="@+id/btn_Register"
             android:layout_width="500px"
             android:layout_height="125px"

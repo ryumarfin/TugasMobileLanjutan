@@ -13,17 +13,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
-//    var i = 0
     fun toRegisterPage(view: View) {
-//       intent ekspilisit
-//        ++i
-//        var tv = findViewById<TextView>(R.id.et_email)
-//        tv.text=i.toString()
-
-
-
         var intentRegister = Intent(this,Register::class.java)
         startActivity(intentRegister)
 
+    }
+
+    fun toSparepartPage(view: View) {
+        var intentSparePart = Intent(this,Sparepart::class.java)
+        startActivity(intentSparePart)
+        finish()
     }
 }

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".beli"
+    android:orientation="vertical"
+    android:padding="10pt">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/MoLineMerah"
+        android:textAllCaps="false"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:text="Barang yang dibeli"/>
+    <View
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/MoLineMerah"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img_beli"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/pic1"/>
+        <TextView
+            android:id="@+id/keterangan"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/img_beli"
+            android:text="Kunci Kontak Vespaaa Kualitas Terbaik"
+            android:textColor="@color/black"
+            android:textSize="18dp"/>
+        <TextView
+            android:id="@+id/Rp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/keterangan"
+            android:layout_toRightOf="@+id/img_beli"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:text="Rp. "/>
+        <TextView
+            android:id="@+id/harga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/Rp"
+            android:layout_below="@+id/keterangan"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:text="85.000"/>
+
+        <LinearLayout
+            android:layout_below="@+id/Rp"
+            android:layout_toRightOf="@+id/img_beli"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp">
+            <ImageButton
+
+                android:onClick="minus"
+                android:id="@+id/btn_min"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingBottom="15dp"
+                android:src="@drawable/ic_baseline_minimize_24"
+                android:background="@drawable/roundborder"
+                android:layout_gravity="center"/>
+            <EditText
+                android:id="@+id/jumlahbarang"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:gravity="center"
+                android:text="1"/>
+            <ImageButton
+                android:onClick="plus"
+                android:id="@+id/btn_plus"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_baseline_add_24"
+                android:background="@drawable/roundborder"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+        <EditText
+            android:id="@+id/catatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_beli"
+            android:layout_margin="10dp"
+            android:hint="Catatan untuk penjual (opsional)"
+            android:textSize="13dp"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/MoLineAbu"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:text="Pengiriman dan Pembayaran\nAlamat"
+        android:lineSpacingExtra="10dp"/>
+
+</LinearLayout>
