@@ -1,0 +1,225 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:elevation="1dp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="15dp"
+        android:background="@android:color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Panggil Montir"
+            android:textAllCaps="false"
+            android:textColor="@color/MoLineMerah"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+        <View
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/MoLineMerah"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="587dp"
+
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/jeniskendaraan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Jenis Kendaraan" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <TextView
+                    android:id="@+id/Lokasisaya"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="Lokasi saya" />
+            </HorizontalScrollView>
+
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="300dp"
+                android:layout_height="400dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"/>
+
+            <EditText
+                android:id="@+id/keluhan"
+                android:layout_width="250dp"
+                android:layout_height="58dp"
+                android:layout_gravity="center"
+                android:hint="Keluhan Kendaraan anda" />
+
+            <Button
+                android:id="@+id/btn_carimontir"
+
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/button"
+                android:text="Cari Montir"
+                android:textColor="@color/white"
+                android:textSize="35px" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnutama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="visible"
+
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="82dp"
+            android:layout_height="75dp"
+            android:orientation="vertical"
+            android:background="@color/MoLineMerah"         >
+            <ImageView
+                android:layout_width="29dp"
+                android:layout_height="20dp"
+                android:src="@drawable/pic2"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sparepart"
+                android:layout_marginTop="1dp"
+                android:textSize="10dp"
+                android:textColor="@color/MoLinePutih"
+                android:layout_gravity="center"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="75dp"
+            android:background="@color/black"
+            ></LinearLayout>
+        <LinearLayout
+            android:layout_width="82dp"
+            android:layout_height="75dp"
+            android:orientation="vertical"
+            android:background="@color/MoLineAbu"         >
+            <ImageView
+                android:layout_width="29dp"
+                android:layout_height="20dp"
+                android:src="@drawable/pic2"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Panggil Montir"
+                android:layout_marginTop="1dp"
+                android:textSize="10dp"
+                android:textColor="@color/MoLineMerah"
+                android:layout_gravity="center"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="75dp"
+            android:background="@color/black"
+            ></LinearLayout>
+        <LinearLayout
+        android:layout_width="82dp"
+        android:layout_height="75dp"
+        android:orientation="vertical"
+        android:background="@color/MoLineMerah"         >
+        <ImageView
+            android:layout_width="29dp"
+            android:layout_height="20dp"
+            android:src="@drawable/pic2"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Panggil Bensin"
+            android:layout_marginTop="1dp"
+            android:textSize="10dp"
+            android:textColor="@color/MoLinePutih"
+            android:layout_gravity="center"/>
+
+
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="75dp"
+            android:background="@color/black"
+            ></LinearLayout><LinearLayout
+        android:layout_width="82dp"
+        android:layout_height="75dp"
+        android:orientation="vertical"
+        android:background="@color/MoLineMerah"         >
+        <ImageView
+            android:layout_width="29dp"
+            android:layout_height="20dp"
+            android:src="@drawable/history"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="History"
+            android:layout_marginTop="1dp"
+            android:textSize="10dp"
+            android:textColor="@color/MoLinePutih"
+            android:layout_gravity="center"/>
+
+
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="75dp"
+            android:background="@color/black"
+            ></LinearLayout>
+        <LinearLayout
+        android:layout_width="82dp"
+        android:layout_height="75dp"
+        android:orientation="vertical"
+        android:background="@color/MoLineMerah"         >
+        <ImageView
+            android:layout_width="29dp"
+            android:layout_height="20dp"
+            android:src="@drawable/pic2"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:layout_marginTop="1dp"
+            android:textColor="@color/MoLinePutih"
+            android:textSize="10dp"
+            android:layout_gravity="center"/>
+
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
