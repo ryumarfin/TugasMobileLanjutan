@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Latber">
-        <activity android:name=".done"></activity>
+        <activity
+            android:name=".panggilbensin"
+            android:label="Panggil Bensin" />
+        <activity android:name=".done" />
         <activity
             android:name=".metode"
             android:label="Metode Pembayaran"

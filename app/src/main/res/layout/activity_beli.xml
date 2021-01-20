@@ -67,16 +67,18 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp">
+
             <ImageButton
 
-                android:onClick="minus"
                 android:id="@+id/btn_min"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:paddingBottom="15dp"
-                android:src="@drawable/ic_baseline_minimize_24"
+                android:layout_gravity="center"
                 android:background="@drawable/roundborder"
-                android:layout_gravity="center"/>
+                android:onClick="minus"
+                android:paddingBottom="15dp"
+                android:src="@drawable/ic_baseline_minimize_24" />
+
             <EditText
                 android:id="@+id/jumlahbarang"
                 android:layout_width="50dp"
