@@ -1,5 +1,6 @@
 package com.example.latber
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -38,5 +39,10 @@ class beli : AppCompatActivity() {
             --jlh
             jumlahbarang.setText(jlh.toString())
         }
+    }
+
+    fun toMetode(view: View) {
+        var intentReplay = Intent (this, metode::class.java)
+        startActivity(intentReplay)
     }
 }
