@@ -153,6 +153,8 @@
             android:background="@color/MoLineAbu"
             android:text="Total Bayar\nRp. 12.000"/>
         <Button
+            android:id="@+id/btnBayar"
+            android:onClick="kehalamanPembayaran"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
