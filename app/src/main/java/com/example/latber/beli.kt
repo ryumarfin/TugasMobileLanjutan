@@ -41,7 +41,12 @@ class beli : AppCompatActivity() {
         }
     }
 
-    fun toMetode(view: View) {
+/*    fun toMetode(view: View) {
+        var intentReplay = Intent (this, metode::class.java)
+        startActivity(intentReplay)
+    }*/
+
+    fun kehalamanPembayaran(view: View) {
         var intentReplay = Intent (this, metode::class.java)
         startActivity(intentReplay)
     }
