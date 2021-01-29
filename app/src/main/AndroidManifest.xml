@@ -9,14 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Latber">
-        <activity
-            android:name=".panggilbensin"
-            android:label="Panggil Bensin" />
-        <activity android:name=".done" />
-        <activity
-            android:name=".metode"
-            android:label="Metode Pembayaran"
-            android:parentActivityName=".MainActivity" />
+        <activity android:name=".profile"></activity>
+        <activity android:name=".activity_profile" />
+        <activity android:name=".menu">
+            android:theme="@style/NoAction" />
+        </activity>
         <activity
             android:name=".beli"
             android:label="Beli Langsung"

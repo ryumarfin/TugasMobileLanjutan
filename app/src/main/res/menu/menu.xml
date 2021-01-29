@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_sparepart"
+        android:icon="@drawable/abc_vector_test"
+        android:title="Home"
+        />
+    <item
+        android:id="@+id/nav_panggilmontir"
+        android:icon="@drawable/abc_vector_test"
+        android:title="Panggil Montir"
+        />
+    <item
+        android:id="@+id/nav_Panggilbensin"
+        android:icon="@drawable/abc_vector_test"
+        android:title="Panggil Montir"
+        />
+    <item
+        android:id="@+id/nav_history"
+        android:icon="@drawable/abc_vector_test"
+        android:title="History"/>
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/abc_vector_test"
+        android:title="Profile"/>
+</menu>
