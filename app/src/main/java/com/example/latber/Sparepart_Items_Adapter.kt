@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.latihanbersama.Sparepart_Item
 
-class Sparepart_Items_Adapter (var context: Context, var arrayList:ArrayList<Sparepart_Item>): BaseAdapter() {
+class Sparepart_Items_Adapter(var context: Context, var arrayList:ArrayList<Sparepart_Item>): BaseAdapter() {
     override fun getItem(position: Int): Any {
         return arrayList.get(position)
     }

@@ -5,9 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import android.widget.Toast
 import com.example.latihanbersama.Sparepart_Item
-import kotlinx.android.synthetic.main.activity_sparepart.*
+import kotlinx.android.synthetic.main.activity_navigation.*
 
 class Sparepart : AppCompatActivity(), AdapterView.OnItemClickListener {
 
@@ -16,14 +15,14 @@ class Sparepart : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sparepart)
+        setContentView(R.layout.activity_navigation)
 
         arrayList = ArrayList()
         arrayList = setDataList()
 
         sparepartItemsAdapter = Sparepart_Items_Adapter(applicationContext, arrayList!!)
-        myGridView?.adapter = sparepartItemsAdapter
-        myGridView?.onItemClickListener = this
+//        myGridView?.adapter = sparepartItemsAdapter
+//        myGridView?.onItemClickListener = this
     }
 
 
