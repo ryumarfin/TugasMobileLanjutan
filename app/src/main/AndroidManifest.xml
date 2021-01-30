@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Latber">
+        <activity android:name=".rating"></activity>
+        <activity android:name=".dapatMontir" />
         <activity android:name=".menu">
 
-<!--            android:theme="@style/NoAction"-->
+            <!-- android:theme="@style/NoAction" -->
         </activity>
         <activity
             android:name=".beli"
