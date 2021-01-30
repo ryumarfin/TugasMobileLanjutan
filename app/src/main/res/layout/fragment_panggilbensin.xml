@@ -5,10 +5,108 @@
     android:layout_height="match_parent"
     tools:context=".fragments.PanggilbensinFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="panggil bensin" />
+        tools:context=".panggilbensin"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Masukkan jumlah (liter)"
+                android:textSize="15dp"/>
+
+            <ImageButton
+
+                android:id="@+id/btn_min"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:paddingBottom="15dp"
+                android:src="@drawable/ic_baseline_minimize_24"
+                android:background="@drawable/roundborder"
+                android:layout_gravity="center"/>
+            <EditText
+                android:id="@+id/jumlahbarang"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:gravity="center"
+                android:text="1"/>  99k
+            <ImageButton
+
+                android:id="@+id/btn_plus"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_baseline_add_24"
+                android:background="@drawable/roundborder"
+                android:layout_gravity="center"/>
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="Cek"
+                android:textColor="@color/white"
+                android:layout_marginLeft="40dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jarak antar :"/>
+        <ImageView
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/maps"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Biaya antar :"
+            android:layout_marginTop="25dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Biaya bensin :"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#bbb"
+            android:layout_marginTop="30dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total :"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginBottom="50dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Bayar"
+                android:layout_weight="1"
+                android:layout_marginRight="40dp"
+               />
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Batal"
+                android:layout_weight="1"
+                android:layout_marginLeft="40dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>
