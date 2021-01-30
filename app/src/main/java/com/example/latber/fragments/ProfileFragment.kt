@@ -48,7 +48,7 @@ class ProfileFragment : Fragment() {
             startActivity(intentBaru)
         }
         return objView
-        }
+    }
 
     companion object {
         /**
