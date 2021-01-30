@@ -2,25 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_sparepart"
-        android:icon="@drawable/abc_vector_test"
+        android:icon="@drawable/sparepart"
         android:title="Home"
         />
     <item
         android:id="@+id/nav_panggilmontir"
-        android:icon="@drawable/abc_vector_test"
-        android:title="Panggil Montir"
+        android:icon="@drawable/montir"
+        android:title="Mechanic"
         />
     <item
         android:id="@+id/nav_Panggilbensin"
-        android:icon="@drawable/abc_vector_test"
-        android:title="Panggil Montir"
+        android:icon="@drawable/bensin"
+        android:title="Fuel"
         />
     <item
         android:id="@+id/nav_history"
-        android:icon="@drawable/abc_vector_test"
+        android:icon="@drawable/history"
         android:title="History"/>
     <item
         android:id="@+id/nav_profile"
-        android:icon="@drawable/abc_vector_test"
+        android:icon="@drawable/profile"
         android:title="Profile"/>
 </menu>
