@@ -188,9 +188,5 @@
 
 
         </LinearLayout>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/Myrecycleview"
-            android:layout_width="358dp"
-            android:layout_height="194dp" />
     </LinearLayout>
 </FrameLayout>
