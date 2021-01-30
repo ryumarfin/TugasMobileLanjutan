@@ -21,8 +21,6 @@ class Sparepart : AppCompatActivity(), AdapterView.OnItemClickListener {
         arrayList = setDataList()
 
         sparepartItemsAdapter = Sparepart_Items_Adapter(applicationContext, arrayList!!)
-//        myGridView?.adapter = sparepartItemsAdapter
-//        myGridView?.onItemClickListener = this
     }
 
 
@@ -49,11 +47,6 @@ class Sparepart : AppCompatActivity(), AdapterView.OnItemClickListener {
         var sparepartItem: Sparepart_Item = arrayList!!.get(position)
 
         var intentItem = Intent(this, beli::class.java)
-
-        /*img1.setDrawingCacheEnabled(true)
-        val gambar: Bitmap = img1.getDrawingCache()
-
-        intentItem.putExtra("Bitmap", gambar)*/
 
         intentItem.putExtra("resId", sparepartItem.imgs)
 

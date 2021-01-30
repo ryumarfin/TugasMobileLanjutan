@@ -1,14 +1,15 @@
 package com.example.latber
 
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.GridView
+import androidx.fragment.app.Fragment
 import com.example.latihanbersama.Sparepart_Item
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,6 +31,14 @@ class frag_sparepart : Fragment(), AdapterView.OnItemClickListener {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+
+
+            arrayList = ArrayList()
+            arrayList = setDataList()
+
+            val AGC =  getActivity()?.getApplicationContext()
+
+            sparepartItemsAdapter = Sparepart_Items_Adapter(AGC!!, arrayList!!)
         }
     }
 
@@ -38,29 +47,20 @@ class frag_sparepart : Fragment(), AdapterView.OnItemClickListener {
     private var arrayList: ArrayList<Sparepart_Item>? = null
     private var sparepartItemsAdapter: Sparepart_Items_Adapter? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
+//        val activity = frag_sparepart as Context
+//        val recyclerView = view.findViewById<GridView>(R.id.myGridView)
+//        recyclerView.layoutManager = GridLayoutManager(activity, 2)
+//        recyclerView.adapter = DogListAdapter(activity)
+//        return view
+
 
         var objView = inflater.inflate(R.layout.fragment_frag_sparepart, container, false)
 
-
-        arrayList = ArrayList()
-        arrayList = setDataList()
-
-        var grdview1 = objView.findViewById<GridView>(R.id.myGridView)
-
-        sparepartItemsAdapter = Sparepart_Items_Adapter( container!!.context, arrayList!!)
-
-        grdview1?.adapter = sparepartItemsAdapter
-        grdview1?.onItemClickListener = this
-
-
-        /*var btn = objView.findViewById<Button>(R.id.btn_frag1)
-        btn.setOnClickListener {
-            var intentBaru = Intent(activity, register::class.java)
-            startActivity(intentBaru)
-        }*/
 
         return objView
     }

@@ -18,10 +18,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [SparepartFragment.newInstance] factory method to
+ * Use the [SparepartsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SparepartFragment : Fragment() {
+class SparepartsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -42,15 +42,11 @@ class SparepartFragment : Fragment() {
     private var sparepartItemsAdapter: Sparepart_Items_Adapter? = null
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-//        val view: View = inflater.inflate(R.layout.fragment_frag_sparepart, container,
-//            false)
         val activity = activity as Context
 //        val recyclerView = view.findViewById<GridView>(R.id.myGridView)
 //        recyclerView.layoutManager = GridLayoutManager(activity, 2)
@@ -79,14 +75,9 @@ class SparepartFragment : Fragment() {
 
         return objView
 
-
-
-
-
-
-
-//        return inflater.inflate(R.layout.fragment_frag_sparepart, container, false)
+//        return inflater.inflate(R.layout.fragment_spareparts, container, false)
     }
+
 
     private fun setDataList(): ArrayList<Sparepart_Item> {
         var arrayList: ArrayList<Sparepart_Item> = ArrayList()
@@ -109,11 +100,6 @@ class SparepartFragment : Fragment() {
 
 
 
-
-
-
-
-
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -121,12 +107,12 @@ class SparepartFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment SparepartFragment.
+         * @return A new instance of fragment SparepartsFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            SparepartFragment().apply {
+            SparepartsFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
