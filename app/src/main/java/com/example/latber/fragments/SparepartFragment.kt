@@ -63,7 +63,7 @@ class SparepartFragment : Fragment() {
         arrayList = ArrayList()
         arrayList = setDataList()
 
-        var grdview1 = objView.findViewById<GridView>(R.id.myGridView)
+//        var grdview1 = objView.findViewById<GridView>(R.id.myGridView)
 
         sparepartItemsAdapter = Sparepart_Items_Adapter( activity, arrayList!!)
 

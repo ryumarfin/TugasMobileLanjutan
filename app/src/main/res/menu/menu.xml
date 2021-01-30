@@ -3,7 +3,7 @@
     <item
         android:id="@+id/nav_sparepart"
         android:icon="@drawable/sparepart"
-        android:title="Home"
+        android:title="Sparepart"
         />
     <item
         android:id="@+id/nav_panggilmontir"
