@@ -5,58 +5,60 @@
     android:layout_height="match_parent"
     tools:context=".fragments.PanggilbensinFragment">
 
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".panggilbensin"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/MoLineMerah"
+            android:textAllCaps="false"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:text="Panggil Bensin"/>
+        <View
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/MoLineMerah"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_margin="10dp"
+            android:paddingRight="20dp">
             <TextView
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="Masukkan jumlah (liter)"
-                android:textSize="15dp"/>
-
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Masukkan jumlah (liter) : "
+                android:layout_weight="1"/>
             <ImageButton
-
-                android:id="@+id/btn_min"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:id="@+id/btn_minbensin"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:paddingBottom="15dp"
                 android:src="@drawable/ic_baseline_minimize_24"
                 android:background="@drawable/roundborder"
                 android:layout_gravity="center"/>
             <EditText
-                android:id="@+id/jumlahbarang"
-                android:layout_width="40dp"
+                android:id="@+id/jumlahbensin"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:gravity="center"
-                android:text="1"/>  99k
+                android:text="1"/>
             <ImageButton
-
-                android:id="@+id/btn_plus"
+                android:id="@+id/btn_plusbensin"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_baseline_add_24"
                 android:background="@drawable/roundborder"
                 android:layout_gravity="center"/>
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:text="Cek"
-                android:textColor="@color/white"
-                android:layout_marginLeft="40dp" />
-
         </LinearLayout>
 
         <TextView
+            android:paddingLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Jarak antar :"/>
@@ -66,46 +68,39 @@
             android:layout_gravity="center"
             android:src="@drawable/map"/>
         <TextView
+            android:layout_marginTop="5dp"
+            android:paddingLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Biaya antar :"
-            android:layout_marginTop="25dp"/>
+            android:text="Biaya antar : Rp. 10.000"/>
         <TextView
+            android:paddingLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Biaya bensin :"/>
+            android:text="Biaya bensin : Rp. 15.000"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="#bbb"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Total :"
+            android:text="Total : Rp. 25.0000"
             android:textStyle="bold"
             android:textSize="20dp"
-            android:layout_marginBottom="50dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Button
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Bayar"
-                android:layout_weight="1"
-                android:layout_marginRight="40dp"
-               />
-            <Button
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Batal"
-                android:layout_weight="1"
-                android:layout_marginLeft="40dp"
-                />
-        </LinearLayout>
+            android:layout_marginBottom="20dp"/>
+        <Button
+            android:id="@+id/btn_bayarbensin"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:background="@drawable/button"
+            android:layout_marginTop="10dp"
+            android:text="Lannjut"
+            android:textColor="@color/white"
+            android:textSize="40px"/>
 
     </LinearLayout>
 

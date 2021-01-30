@@ -12,7 +12,7 @@ class Register : AppCompatActivity() {
     }
 
     fun RegistertoSparepartPage1(view: View) {
-        var intentSparePart = Intent(this,Sparepart::class.java)
+        var intentSparePart = Intent(this,menu::class.java)
         startActivity(intentSparePart)
         finish()
     }
