@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Latber">
         <activity android:name=".rating"></activity>
+        <activity android:name=".metode"></activity>
+        <activity android:name=".done"></activity>
         <activity android:name=".dapatMontir" />
         <activity android:name=".menu">
 

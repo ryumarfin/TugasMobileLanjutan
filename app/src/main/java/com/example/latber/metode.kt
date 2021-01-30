@@ -14,8 +14,10 @@ class metode : AppCompatActivity() {
     }
     fun toDone(view: View) {
         var intentReplay = Intent (this, done::class.java)
-        if (cod.isChecked || saldo.isChecked)
+        if (cod.isChecked || saldo.isChecked){
             startActivity(intentReplay)
+            finish()
+        }
         else
             Toast.makeText(this, "Pilih metode pembayaran", Toast.LENGTH_SHORT).show()
     }

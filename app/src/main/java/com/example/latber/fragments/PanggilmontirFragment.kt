@@ -39,7 +39,7 @@ class PanggilmontirFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var objView = inflater.inflate(R.layout.activity_panggilmontir, container, false)
+        var objView = inflater.inflate(R.layout.fragment_panggilmontir, container, false)
         var btn = objView.findViewById<Button>(R.id.btn_cariMontir)
         btn.setOnClickListener {
             var intentBaru = Intent(activity, dapatMontir::class.java)

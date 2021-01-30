@@ -33,7 +33,7 @@ class beli : AppCompatActivity() {
         jumlahbarang.setText(jlh.toString())
     }
     fun minus(view: View) {
-        if (jlh<1)
+        if (jlh<=1)
             Toast.makeText(applicationContext,"Minimal Pemesanan adalah 1", Toast.LENGTH_SHORT).show()
         else{
             --jlh

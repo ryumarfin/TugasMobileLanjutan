@@ -11,8 +11,7 @@ class done : AppCompatActivity() {
         setContentView(R.layout.activity_done)
     }
     fun toSparepartPage(view: View) {
-        var intentSparePart = Intent(this,Sparepart::class.java)
-        startActivity(intentSparePart)
+        finish()
     }
 
 }

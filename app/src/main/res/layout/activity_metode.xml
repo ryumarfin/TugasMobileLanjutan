@@ -4,64 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".metode">
 
-    <LinearLayout
+    <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RadioGroup
+        <RadioButton
+            android:id="@+id/cod"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <RadioButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bayar COD"
-                android:id="@+id/cod" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:text="Bayar dengan uang tunai ketika Montir datang mengantar pesanan"/>
-            <RadioButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Saldo Mo-Line"
-                android:layout_marginTop="20dp"
-                android:id="@+id/saldo"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:text="Gunakan saldo Mo-Line yang anda miliki"/>
-        </RadioGroup>
-        <ImageView
-            android:layout_width="800px"
-            android:layout_height="400px"
-            android:layout_marginTop="50px"
-            android:src="@drawable/molinecard"/>
+            android:text="Bayar COD" />
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
-            android:orientation="horizontal">
+            android:paddingLeft="30dp"
+            android:text="Bayar dengan uang tunai ketika Montir datang mengantar pesanan" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bayar"
-                android:textColor="@color/white"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:onClick="toDone"
-                android:layout_gravity="center"/>
+        <RadioButton
+            android:id="@+id/saldo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Saldo Mo-Line" />
 
+    </RadioGroup>
 
-        </LinearLayout>
+    <ImageView
+        android:layout_width="800px"
+        android:layout_height="400px"
+        android:layout_marginTop="50px"
+        android:src="@drawable/molinecard" />
 
-    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:onClick="toDone"
+        android:text="Bayar"
+        android:textColor="@color/white" />
+
 
 </LinearLayout>

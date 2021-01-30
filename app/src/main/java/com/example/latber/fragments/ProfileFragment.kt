@@ -44,8 +44,8 @@ class ProfileFragment : Fragment() {
         var objView = inflater.inflate(R.layout.fragment_profile, container, false)
         var btn = objView.findViewById<Button>(R.id.btn_logout)
         btn.setOnClickListener {
-            var intentBaru = Intent(activity, MainActivity::class.java)
-            startActivity(intentBaru)
+            getActivity()?.finish()
+//            activity?.onBackPressed()
         }
         return objView
     }
