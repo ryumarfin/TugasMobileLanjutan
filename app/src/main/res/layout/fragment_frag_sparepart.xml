@@ -5,48 +5,269 @@
     android:layout_height="match_parent"
     tools:context=".frag_sparepart">
 
-    <LinearLayout
+
+    <!--    NB :  kami tidak bisa menampilkan gridview di dalam fragment-->
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingTop="10dp">
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:background="@drawable/border"-->
-<!--            android:gravity="center">-->
+        <LinearLayout
+            android:id="@+id/cari"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10px"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/border"
+            android:gravity="center">
 
-<!--            <EditText-->
-<!--                android:id="@+id/et_searchSparepart"-->
-<!--                android:layout_width="320dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:backgroundTint="@color/white"-->
-<!--                android:hint="abcdegf"-->
-<!--                android:singleLine="true" />-->
+            <EditText
+                android:id="@+id/et_searchSparepart"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:hint="abcdegf"
+                android:singleLine="true" />
 
-<!--            <ImageButton-->
-<!--                android:id="@+id/btn_serachSparepart"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:background="@color/white"-->
-<!--                android:src="@drawable/ic_baseline_search_24" />-->
-<!--        </LinearLayout>-->
+            <ImageButton
+                android:id="@+id/btn_serachSparepart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:src="@drawable/ic_baseline_search_24" />
+        </LinearLayout>
 
-        <GridView
+        <LinearLayout
+            android:id="@+id/satu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cari"
+            android:layout_margin="20px"
+            android:background="@drawable/border"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/pic1" />
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:maxLength="30"
+                android:text="Kunci Kontak Vespa New"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp. "
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="85.000"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/pcs"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cari"
+            android:layout_alignParentRight="true"
+            android:layout_margin="20px"
+            android:background="@drawable/border"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/img2"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/pic1" />
+
+            <TextView
+                android:id="@+id/tv11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:maxLength="30"
+                android:text="Kunci Kontak Vespa New"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp. "
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="85.000"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/pcs"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tiga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/satu"
+            android:layout_margin="20px"
+            android:background="@drawable/border"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/img11"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/pic1" />
+
+            <TextView
+                android:id="@+id/tv111"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:maxLength="30"
+                android:text="Kunci Kontak Vespa New"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp. "
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv222"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="85.000"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/pcs"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_toRightOf="@+id/tiga"
+            android:id="@+id/empat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dua"
+            android:layout_margin="20px"
+            android:background="@drawable/border"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/img111"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/pic1" />
+
+            <TextView
+                android:id="@+id/tv1112"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:maxLength="30"
+                android:text="Kunci Kontak Vespa New"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp. "
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv2232"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="85.000"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/pcs"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </LinearLayout>
+        <!--<GridView
             android:id="@+id/myGridView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnWidth="150dp"
             android:horizontalSpacing="15dp"
             android:numColumns="2"
-            android:verticalSpacing="15dp" />
+            android:verticalSpacing="15dp" />-->
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
     <!--    <GridView-->

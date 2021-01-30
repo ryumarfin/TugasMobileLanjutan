@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_menu.*
 
 class menu : AppCompatActivity() {
 
-    private val sparepartFragment = SparepartsFragment()
+    private val sparepartFragment = frag_sparepart()
     private val panggilbensinFragment = PanggilbensinFragment()
     private val panggilmontirFragment = PanggilmontirFragment()
     private val historyFragment = HistoryFragment()

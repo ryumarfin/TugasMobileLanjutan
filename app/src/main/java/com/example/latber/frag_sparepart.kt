@@ -1,12 +1,13 @@
 package com.example.latber
 
 import android.content.Context
+import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.GridView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.latihanbersama.Sparepart_Item
 
@@ -58,10 +59,28 @@ class frag_sparepart : Fragment(), AdapterView.OnItemClickListener {
 //        recyclerView.adapter = DogListAdapter(activity)
 //        return view
 
-
+        // NB :  kami tidak bisa menampilkan gridview di dalam fragment
         var objView = inflater.inflate(R.layout.fragment_frag_sparepart, container, false)
-
-
+        var gv1 = objView.findViewById<LinearLayout>(R.id.satu)
+        gv1.setOnClickListener {
+            var intentBaru = Intent(activity, beli::class.java)
+            startActivity(intentBaru)
+        }
+        var gv2 = objView.findViewById<LinearLayout>(R.id.dua)
+        gv2.setOnClickListener {
+            var intentBaru = Intent(activity, beli::class.java)
+            startActivity(intentBaru)
+        }
+        var gv3 = objView.findViewById<LinearLayout>(R.id.tiga)
+        gv3.setOnClickListener {
+            var intentBaru = Intent(activity, beli::class.java)
+            startActivity(intentBaru)
+        }
+        var gv4 = objView.findViewById<LinearLayout>(R.id.empat)
+        gv4.setOnClickListener {
+            var intentBaru = Intent(activity, beli::class.java)
+            startActivity(intentBaru)
+        }
         return objView
     }
     private fun setDataList(): ArrayList<Sparepart_Item> {
