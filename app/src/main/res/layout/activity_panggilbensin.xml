@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:gravity="center"
-            android:text="1"/>
+            android:text="1"/>  99k
         <ImageButton
             android:onClick="plus"
             android:id="@+id/btn_plus"
