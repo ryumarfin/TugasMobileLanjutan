@@ -28,7 +28,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_margin="20dp"
             android:background="@color/MoLineAbu"
@@ -66,6 +66,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/button"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="Cari Montir"
                 android:textColor="@color/white"
                 android:textSize="40px"
