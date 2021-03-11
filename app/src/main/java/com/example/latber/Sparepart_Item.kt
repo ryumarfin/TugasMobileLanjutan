@@ -1,13 +1,11 @@
 package com.example.latihanbersama
 
-class Sparepart_Item {
-    var imgs:Int ?=0
-    var detail : String ?= null
-    var price : Int ?=0
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-    constructor(imgs: Int?, details: String?, price: Int?) {
-        this.imgs = imgs
-        this.detail = details
-        this.price = price
-    }
-}
+@Parcelize
+ data class Sparepart_Item (
+    var imgs:Int,
+    var detail : String,
+    var price : Int
+    ): Parcelable

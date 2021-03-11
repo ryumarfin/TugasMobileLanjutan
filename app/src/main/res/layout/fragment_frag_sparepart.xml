@@ -264,18 +264,16 @@
             android:horizontalSpacing="15dp"
             android:numColumns="2"
             android:verticalSpacing="15dp" />-->
-
-
     </RelativeLayout>
 
 
-    <!--    <GridView-->
-    <!--        android:id="@+id/myGridView"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:columnWidth="150dp"-->
-    <!--        android:horizontalSpacing="15dp"-->
-    <!--        android:numColumns="2"-->
-    <!--        android:verticalSpacing="15dp" />-->
+<!--        <GridView-->
+<!--            android:id="@+id/myGridView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:columnWidth="150dp"-->
+<!--            android:horizontalSpacing="15dp"-->
+<!--            android:numColumns="2"-->
+<!--            android:verticalSpacing="15dp" />-->
 
 </FrameLayout>

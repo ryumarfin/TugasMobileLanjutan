@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.example.latihanbersama.Sparepart_Item
 import kotlinx.android.synthetic.main.activity_beli.*
 
 class beli : AppCompatActivity() {
@@ -22,6 +23,12 @@ class beli : AppCompatActivity() {
 //
 //        keterangan.setText(intentExtra.getStringExtra(EXTRA_KETERANGAN))
 //        harga.setText(intentExtra.getStringExtra(EXTRA_HARGA))
+        var item = this.intent.getParcelableExtra<Sparepart_Item>(DETAIL_SPAREPART)
+        findViewById<ImageView>(R.id.img_beli).setImageResource(item!!.imgs)
+        findViewById<TextView>(R.id.keterangan).setText(item.detail)
+        findViewById<TextView>(R.id.harga).setText(item.price.toString())
+
+
     }
 
     fun plus(view: View) {
