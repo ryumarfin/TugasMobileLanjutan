@@ -1,10 +1,12 @@
 package com.example.latber
 
 import android.content.Context
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.latihanbersama.Sparepart_Item
 
@@ -33,6 +35,16 @@ class Sparepart_Items_Adapter(var context: Context, var arrayList:ArrayList<Spar
         imgs.setImageResource(sparepartItem.imgs!!)
         details.text = sparepartItem.detail
         price.text = sparepartItem.price.toString()
+
+        view.findViewById<LinearLayout>(R.id.item_sparepare).setOnClickListener {
+            var intentDetail = Intent(context,beli::class.java)
+
+
+            var item = Sparepart_Item(arrayList[position].imgs,arrayList[position].detail,arrayList[position].price)
+            intentDetail.putExtra(DETAIL_SPAREPART,item)
+
+            context.startActivity(intentDetail)
+        }
 
         return view
     }
