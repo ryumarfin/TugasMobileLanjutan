@@ -20,15 +20,17 @@
         <activity
             android:name=".beli"
             android:label="Beli Langsung"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:parentActivityName=".Sparepart" />
         <activity
             android:name=".Sparepart"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:theme="@style/NoAction" />
         <activity
             android:name=".Register"
             android:label="Register"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:configChanges="orientation|screenSize|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
