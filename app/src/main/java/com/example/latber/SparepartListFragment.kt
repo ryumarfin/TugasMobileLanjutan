@@ -32,23 +32,22 @@ class SparepartListFragment : Fragment() {
 
         var arrayList: ArrayList<Market_Item> = ArrayList()
 
-        arrayList.add(Market_Item(R.drawable.pic1, "Kunci Kontak Vespa New", 10000))
+        arrayList.add(Market_Item(R.drawable.pic1, "PS5", 1000000))
         arrayList.add(
             Market_Item(
                 R.drawable.pic2,
-                "Kunci Kontak Vespa New barang bagus sekaliiii",
-                20000
+                "Pleys Tesien Lima",
+                1000000
             )
         )
-        arrayList.add(Market_Item(R.drawable.pic1, "Barang Bagus", 30000))
-        arrayList.add(Market_Item(R.drawable.pic2, "Ban Dalam SupraX", 100000))
-        arrayList.add(Market_Item(R.drawable.pic4, "Kaca Sepion hk", 150000))
-        arrayList.add(Market_Item(R.drawable.pic3, "Tromol 540x", 15000))
+        arrayList.add(Market_Item(R.drawable.pic1, "Laptop", 3000000))
+        arrayList.add(Market_Item(R.drawable.pic2, "Mouse Gaming", 100000))
+        arrayList.add(Market_Item(R.drawable.pic4, "Keyboard", 150000))
+        arrayList.add(Market_Item(R.drawable.pic3, "Headset", 15000))
 
 
         val adapter = Market_Items_Adapter(requireContext(),arrayList)
 
-//        sparePartGridView. = LinearLayoutManager(requireContext())
         sparePartGridView.adapter = adapter
     }
 }

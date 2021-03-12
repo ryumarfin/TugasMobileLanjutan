@@ -6,9 +6,11 @@
     tools:context=".SparepartListFragment">
 
     <GridView
+        android:padding="15dp"
         android:id="@+id/myGridView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
         android:columnWidth="150dp"
         android:horizontalSpacing="15dp"
         android:numColumns="2"
