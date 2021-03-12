@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import com.example.latihanbersama.Sparepart_Item
+import com.example.latihanbersama.Market_Item
 import kotlinx.android.synthetic.main.activity_beli.*
 
 class beli : AppCompatActivity() {
@@ -15,10 +15,10 @@ class beli : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_beli)
 
-        // membuat object untuk mengambil Parcelable dari class Sparepart_Item dengan memasukkan key-nya
-        // var item akan menampung data yang dikirim dari Sparepart_Items_Adapter
-        var item = this.intent.getParcelableExtra<Sparepart_Item>(DETAIL_SPAREPART)
-        // menampilkan data yang dikirim dari acitivity asal (Sparepart_Items_Adapter)
+        // membuat object untuk mengambil Parcelable dari class Market_Item dengan memasukkan key-nya
+        // var item akan menampung data yang dikirim dari Market_Items_Adapter
+        var item = this.intent.getParcelableExtra<Market_Item>(DETAIL_ITEM)
+        // menampilkan data yang dikirim dari acitivity asal (Market_Items_Adapter)
         findViewById<ImageView>(R.id.img_beli).setImageResource(item!!.imgs)
         findViewById<TextView>(R.id.keterangan).setText(item.detail)
         findViewById<TextView>(R.id.harga).setText(item.price.toString())
