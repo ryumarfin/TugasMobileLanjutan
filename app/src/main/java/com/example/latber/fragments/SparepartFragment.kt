@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.GridView
 import com.example.latber.R
-import com.example.latber.Sparepart_Items_Adapter
-import com.example.latihanbersama.Sparepart_Item
+import com.example.latber.Market_Items_Adapter
+import com.example.latihanbersama.Market_Item
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,10 +36,10 @@ class SparepartFragment : Fragment() {
 
 
 
-    private lateinit var myadapter :Sparepart_Items_Adapter
+    private lateinit var myadapter :Market_Items_Adapter
 
-    private var arrayList: ArrayList<Sparepart_Item>? = null
-    private var sparepartItemsAdapter: Sparepart_Items_Adapter? = null
+    private var arrayList: ArrayList<Market_Item>? = null
+    private var sparepartItemsAdapter: Market_Items_Adapter? = null
 
 
 
@@ -65,7 +65,7 @@ class SparepartFragment : Fragment() {
 
 //        var grdview1 = objView.findViewById<GridView>(R.id.myGridView)
 
-        sparepartItemsAdapter = Sparepart_Items_Adapter( activity, arrayList!!)
+        sparepartItemsAdapter = Market_Items_Adapter( activity, arrayList!!)
 
 //        grdview1?.adapter = sparepartItemsAdapter
 //        grdview1?.onItemClickListener = this
@@ -88,21 +88,21 @@ class SparepartFragment : Fragment() {
 //        return inflater.inflate(R.layout.fragment_frag_sparepart, container, false)
     }
 
-    private fun setDataList(): ArrayList<Sparepart_Item> {
-        var arrayList: ArrayList<Sparepart_Item> = ArrayList()
+    private fun setDataList(): ArrayList<Market_Item> {
+        var arrayList: ArrayList<Market_Item> = ArrayList()
 
-        arrayList.add(Sparepart_Item(R.drawable.pic1, "Kunci Kontak Vespa New", 10000))
+        arrayList.add(Market_Item(R.drawable.pic1, "Kunci Kontak Vespa New", 10000))
         arrayList.add(
-            Sparepart_Item(
+            Market_Item(
                 R.drawable.pic2,
                 "Kunci Kontak Vespa New barang bagus sekaliiii",
                 20000
             )
         )
-        arrayList.add(Sparepart_Item(R.drawable.pic1, "Barang Bagus", 30000))
-        arrayList.add(Sparepart_Item(R.drawable.pic2, "Ban Dalam SupraX", 100000))
-        arrayList.add(Sparepart_Item(R.drawable.pic4, "Kaca Sepion hk", 150000))
-        arrayList.add(Sparepart_Item(R.drawable.pic3, "Tromol 540x", 15000))
+        arrayList.add(Market_Item(R.drawable.pic1, "Barang Bagus", 30000))
+        arrayList.add(Market_Item(R.drawable.pic2, "Ban Dalam SupraX", 100000))
+        arrayList.add(Market_Item(R.drawable.pic4, "Kaca Sepion hk", 150000))
+        arrayList.add(Market_Item(R.drawable.pic3, "Tromol 540x", 15000))
 
         return arrayList
     }

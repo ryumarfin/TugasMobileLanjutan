@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import com.example.latihanbersama.Sparepart_Item
+import com.example.latihanbersama.Market_Item
 import kotlinx.android.synthetic.main.activity_navigation.*
 
 class Sparepart : AppCompatActivity() {
 //    , AdapterView.OnItemClickListener
-    private var arrayList: ArrayList<Sparepart_Item>? = null
-    private var sparepartItemsAdapter: Sparepart_Items_Adapter? = null
+    private var arrayList: ArrayList<Market_Item>? = null
+    private var sparepartItemsAdapter: Market_Items_Adapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,31 +20,31 @@ class Sparepart : AppCompatActivity() {
         arrayList = ArrayList()
         arrayList = setDataList()
 
-        sparepartItemsAdapter = Sparepart_Items_Adapter(applicationContext, arrayList!!)
+        sparepartItemsAdapter = Market_Items_Adapter(applicationContext, arrayList!!)
     }
 
 
-    private fun setDataList(): ArrayList<Sparepart_Item> {
-        var arrayList: ArrayList<Sparepart_Item> = ArrayList()
+    private fun setDataList(): ArrayList<Market_Item> {
+        var arrayList: ArrayList<Market_Item> = ArrayList()
 
-        arrayList.add(Sparepart_Item(R.drawable.pic1, "Kunci Kontak Vespa New", 10000))
+        arrayList.add(Market_Item(R.drawable.pic1, "Kunci Kontak Vespa New", 10000))
         arrayList.add(
-            Sparepart_Item(
+            Market_Item(
                 R.drawable.pic2,
                 "Kunci Kontak Vespa New barang bagus sekaliiii",
                 20000
             )
         )
-        arrayList.add(Sparepart_Item(R.drawable.pic1, "Barang Bagus", 30000))
-        arrayList.add(Sparepart_Item(R.drawable.pic2, "Ban Dalam SupraX", 100000))
-        arrayList.add(Sparepart_Item(R.drawable.pic4, "Kaca Sepion hk", 150000))
-        arrayList.add(Sparepart_Item(R.drawable.pic3, "Tromol 540x", 15000))
+        arrayList.add(Market_Item(R.drawable.pic1, "Barang Bagus", 30000))
+        arrayList.add(Market_Item(R.drawable.pic2, "Ban Dalam SupraX", 100000))
+        arrayList.add(Market_Item(R.drawable.pic4, "Kaca Sepion hk", 150000))
+        arrayList.add(Market_Item(R.drawable.pic3, "Tromol 540x", 15000))
 
         return arrayList
     }
 
 //    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-//        var sparepartItem: Sparepart_Item = arrayList!!.get(position)
+//        var sparepartItem: Market_Item = arrayList!!.get(position)
 //
 //        var intentItem = Intent(this, beli::class.java)
 //
