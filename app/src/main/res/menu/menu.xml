@@ -3,7 +3,7 @@
     <item
         android:id="@+id/nav_sparepart"
         android:icon="@drawable/sparepart"
-        android:title="Sparepart"
+        android:title="Market"
         />
     <item
         android:id="@+id/nav_panggilmontir"
