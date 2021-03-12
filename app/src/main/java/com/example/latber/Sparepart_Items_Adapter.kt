@@ -37,12 +37,13 @@ class Sparepart_Items_Adapter(var context: Context, var arrayList:ArrayList<Spar
         price.text = sparepartItem.price.toString()
 
         view.findViewById<LinearLayout>(R.id.item_sparepare).setOnClickListener {
+            // membuat intent eksplisit untuk dapat mengirimkan data ke actiity beli
             var intentDetail = Intent(context,beli::class.java)
-
-
+            // membentuk objek parcelable dari view yang di click agar dapat dikirimkan ke activity beli
             var item = Sparepart_Item(arrayList[position].imgs,arrayList[position].detail,arrayList[position].price)
+            // memasukkan parcelable tadi ke dalam EXTRA/key
             intentDetail.putExtra(DETAIL_SPAREPART,item)
-
+            // mulai activity
             context.startActivity(intentDetail)
         }
 

@@ -15,15 +15,10 @@ class beli : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_beli)
 
-//        val bundle: Bundle = intent.extras!!
-//        val resId: Int = bundle.getInt("resId")
-//        img_beli.setImageResource(resId)
-//
-//        var intentExtra = intent
-//
-//        keterangan.setText(intentExtra.getStringExtra(EXTRA_KETERANGAN))
-//        harga.setText(intentExtra.getStringExtra(EXTRA_HARGA))
+        // membuat object untuk mengambil Parcelable dari class Sparepart_Item dengan memasukkan key-nya
+        // var item akan menampung data yang dikirim dari Sparepart_Items_Adapter
         var item = this.intent.getParcelableExtra<Sparepart_Item>(DETAIL_SPAREPART)
+        // menampilkan data yang dikirim dari acitivity asal (Sparepart_Items_Adapter)
         findViewById<ImageView>(R.id.img_beli).setImageResource(item!!.imgs)
         findViewById<TextView>(R.id.keterangan).setText(item.detail)
         findViewById<TextView>(R.id.harga).setText(item.price.toString())
