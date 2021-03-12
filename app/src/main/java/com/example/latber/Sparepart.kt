@@ -8,8 +8,8 @@ import android.widget.AdapterView
 import com.example.latihanbersama.Sparepart_Item
 import kotlinx.android.synthetic.main.activity_navigation.*
 
-class Sparepart : AppCompatActivity(), AdapterView.OnItemClickListener {
-
+class Sparepart : AppCompatActivity() {
+//    , AdapterView.OnItemClickListener
     private var arrayList: ArrayList<Sparepart_Item>? = null
     private var sparepartItemsAdapter: Sparepart_Items_Adapter? = null
 
@@ -43,16 +43,16 @@ class Sparepart : AppCompatActivity(), AdapterView.OnItemClickListener {
         return arrayList
     }
 
-    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        var sparepartItem: Sparepart_Item = arrayList!!.get(position)
-
-        var intentItem = Intent(this, beli::class.java)
-
-        intentItem.putExtra("resId", sparepartItem.imgs)
-
-        intentItem.putExtra(EXTRA_KETERANGAN, sparepartItem.detail.toString())
-        intentItem.putExtra(EXTRA_HARGA, sparepartItem.price.toString())
-
-        startActivity(intentItem)
-    }
+//    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+//        var sparepartItem: Sparepart_Item = arrayList!!.get(position)
+//
+//        var intentItem = Intent(this, beli::class.java)
+//
+//        intentItem.putExtra("resId", sparepartItem.imgs)
+//
+//        intentItem.putExtra(EXTRA_KETERANGAN, sparepartItem.detail.toString())
+//        intentItem.putExtra(EXTRA_HARGA, sparepartItem.price.toString())
+//
+//        startActivity(intentItem)
+//    }
 }
