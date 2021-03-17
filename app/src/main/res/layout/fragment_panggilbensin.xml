@@ -4,16 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.PanggilbensinFragment">
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginLeft="30dp">
+            android:padding="20dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -31,36 +29,37 @@
                 <ImageView
                     android:id="@+id/gambar"
                     android:layout_marginTop="0dp"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"/>
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/border"/>
 
                 <Button
                     android:id="@+id/addimage"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_margin="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="Masukkan Foto"/>
-
             </LinearLayout>
             
             <TextView
                 android:layout_marginTop="20dp"
-              
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Detail Barang  "/>
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:text="Detail Barang"/>
             <EditText
                 android:id="@+id/detailBarang"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="Deskripsikan Barang anda">
-
             </EditText>
 
             <TextView
                 android:layout_marginTop="20dp"
-
+                android:textColor="@color/black"
+                android:textSize="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Harga Barang  "/>
@@ -69,7 +68,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="cth: 10000">
-
             </EditText>
 
             <Button
@@ -78,11 +76,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Jual"/>
-            
         </LinearLayout>
-
     </ScrollView>
-
-
-
 </FrameLayout>
