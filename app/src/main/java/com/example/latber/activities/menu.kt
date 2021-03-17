@@ -32,8 +32,8 @@ class menu : AppCompatActivity(), InterfaceData {
             true
         }
 
-
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, panggilbensinFragment).commit()
+// KASJDKAJSNDKJANSDJKANSDKJJAWS
+//        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, panggilbensinFragment).commit()
 
     }
 
