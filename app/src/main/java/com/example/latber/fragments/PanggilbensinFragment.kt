@@ -1,17 +1,23 @@
 package com.example.latber.fragments
 
+import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
+import android.widget.*
 import com.example.latber.R
-import com.example.latber.activities.metode
+import kotlinx.android.synthetic.main.activity_beli.*
 
+
+lateinit var imageView: ImageView
+lateinit var button: Button
+private val pickImage = 100
+private var imageUri: Uri? = null
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -42,6 +48,15 @@ class PanggilbensinFragment : Fragment() {
         // Inflate the layout for this fragment
 
         var objView = inflater.inflate(R.layout.fragment_panggilbensin, container, false)
+
+        imageView = objView.findViewById<ImageView>(R.id.gambar)
+        button = objView.findViewById<Button>(R.id.addimage)
+        button.setOnClickListener {
+            val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+            startActivityForResult(gallery, pickImage)
+        }
+
+
         /* var btn = objView.findViewById<Button>(R.id.btn_bayarbensin)
          btn.setOnClickListener {
              var intentBaru = Intent(activity, metode::class.java)
@@ -67,6 +82,14 @@ class PanggilbensinFragment : Fragment() {
         return objView
     }
 
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && requestCode == pickImage) {
+            imageUri = data?.data
+            imageView.setImageURI(imageUri)
+        }
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
