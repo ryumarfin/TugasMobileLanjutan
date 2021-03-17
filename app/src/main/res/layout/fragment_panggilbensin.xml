@@ -28,14 +28,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
                 <ImageView
+                    android:id="@+id/gambar"
                     android:layout_marginTop="0dp"
                     android:layout_width="100dp"
                     android:layout_height="100dp"/>
 
                 <Button
-
+                    android:id="@+id/addimage"
                     android:layout_width="150dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="20dp"
@@ -46,15 +46,17 @@
             
             <TextView
                 android:layout_marginTop="20dp"
+              
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Detail Barang  "/>
-
             <EditText
                 android:id="@+id/detailBarang"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="Deskripsikan Barang anda"/>
+                android:hint="Deskripsikan Barang anda">
+
+            </EditText>
 
             <TextView
                 android:layout_marginTop="20dp"
