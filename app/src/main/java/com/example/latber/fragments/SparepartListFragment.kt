@@ -1,4 +1,4 @@
-package com.example.latber
+package com.example.latber.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.GridView
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.latihanbersama.Market_Item
+import com.example.latber.adapters.Market_Items_Adapter
+import com.example.latber.R
+import com.example.latber.activities.Market_Item
 
 
 class SparepartListFragment : Fragment() {
@@ -35,7 +36,7 @@ class SparepartListFragment : Fragment() {
         arrayList.add(Market_Item(R.drawable.pic1, "PS5", 1000000))
         arrayList.add(
             Market_Item(
-                R.drawable.pic2,
+                    R.drawable.pic2,
                 "Pleys Tesien Lima",
                 1000000
             )

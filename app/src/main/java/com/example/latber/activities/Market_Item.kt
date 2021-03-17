@@ -1,4 +1,4 @@
-package com.example.latihanbersama
+package com.example.latber.activities
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

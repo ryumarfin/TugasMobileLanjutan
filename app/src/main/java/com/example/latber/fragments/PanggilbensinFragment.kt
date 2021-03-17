@@ -9,11 +9,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.Toast
 import com.example.latber.R
-import com.example.latber.dapatMontir
-import com.example.latber.metode
-import kotlinx.android.synthetic.main.activity_beli.*
+import com.example.latber.activities.metode
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

@@ -1,9 +1,10 @@
-package com.example.latber
+package com.example.latber.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.latber.R
 
 class dapatMontir : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,7 +13,7 @@ class dapatMontir : AppCompatActivity() {
     }
 
     fun toRating(view: View) {
-        var intentSparePart = Intent(this,rating::class.java)
+        var intentSparePart = Intent(this, rating::class.java)
         startActivity(intentSparePart)
         finish()
     }

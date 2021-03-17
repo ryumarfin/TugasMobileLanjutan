@@ -7,9 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import com.example.latber.MainActivity
 import com.example.latber.R
-import com.example.latber.dapatMontir
+import com.example.latber.activities.dapatMontir
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

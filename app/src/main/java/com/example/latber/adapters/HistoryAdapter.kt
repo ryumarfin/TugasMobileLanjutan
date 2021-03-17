@@ -1,13 +1,12 @@
-package com.example.latber
+package com.example.latber.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_beli.*
-import kotlinx.android.synthetic.main.activity_beli.view.*
-import kotlinx.android.synthetic.main.myhistory_view.view.*
+import com.example.latber.R
+import com.example.latber.Riwayat
 
 class historyAdapter(data: MutableList<Riwayat>): RecyclerView.Adapter<historyAdapter.myHolder>() {
     private var myData = data
