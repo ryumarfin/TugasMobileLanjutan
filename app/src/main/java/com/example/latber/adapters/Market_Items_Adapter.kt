@@ -1,4 +1,4 @@
-package com.example.latber
+package com.example.latber.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -8,7 +8,10 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.example.latihanbersama.Market_Item
+import com.example.latber.DETAIL_ITEM
+import com.example.latber.R
+import com.example.latber.activities.beli
+import com.example.latber.activities.Market_Item
 
 class Market_Items_Adapter(var context: Context, var arrayList:ArrayList<Market_Item>): BaseAdapter() {
     override fun getItem(position: Int): Any {
@@ -38,7 +41,7 @@ class Market_Items_Adapter(var context: Context, var arrayList:ArrayList<Market_
 
         view.findViewById<LinearLayout>(R.id.item_sparepare).setOnClickListener {
             // membuat intent eksplisit untuk dapat mengirimkan data ke actiity beli
-            var intentDetail = Intent(context,beli::class.java)
+            var intentDetail = Intent(context, beli::class.java)
             // membentuk objek parcelable dari view yang di click agar dapat dikirimkan ke activity beli
             var item = Market_Item(arrayList[position].imgs,arrayList[position].detail,arrayList[position].price)
             // memasukkan parcelable tadi ke dalam EXTRA/key

@@ -1,16 +1,17 @@
-package com.example.latber
+package com.example.latber.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.latber.R
 
-class rating : AppCompatActivity() {
+class done : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_rating)
+        setContentView(R.layout.activity_done)
     }
-
-    fun selesai(view: View) {
+    fun toSparepartPage(view: View) {
         finish()
     }
+
 }

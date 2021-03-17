@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.latber.activities.menu
 import kotlinx.android.synthetic.main.activity_register.*
 
 //2. pembuatan extra status
@@ -16,7 +17,7 @@ class Register : AppCompatActivity() {
     }
 
     fun RegistertoSparepartPage1(view: View) {
-        var intentSparePart = Intent(this,menu::class.java)
+        var intentSparePart = Intent(this, menu::class.java)
         startActivity(intentSparePart)
         finish()
     }

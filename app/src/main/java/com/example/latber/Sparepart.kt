@@ -1,12 +1,9 @@
 package com.example.latber
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
-import com.example.latihanbersama.Market_Item
-import kotlinx.android.synthetic.main.activity_navigation.*
+import com.example.latber.adapters.Market_Items_Adapter
+import com.example.latber.activities.Market_Item
 
 class Sparepart : AppCompatActivity() {
 //    , AdapterView.OnItemClickListener

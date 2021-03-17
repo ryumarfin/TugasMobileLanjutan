@@ -6,10 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridView
 import com.example.latber.R
-import com.example.latber.Market_Items_Adapter
-import com.example.latihanbersama.Market_Item
+import com.example.latber.adapters.Market_Items_Adapter
+import com.example.latber.activities.Market_Item
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,7 +35,7 @@ class SparepartFragment : Fragment() {
 
 
 
-    private lateinit var myadapter :Market_Items_Adapter
+    private lateinit var myadapter : Market_Items_Adapter
 
     private var arrayList: ArrayList<Market_Item>? = null
     private var sparepartItemsAdapter: Market_Items_Adapter? = null

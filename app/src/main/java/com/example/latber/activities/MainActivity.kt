@@ -1,13 +1,11 @@
-package com.example.latber
+package com.example.latber.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
-import android.widget.TextView
-import com.example.latber.fragments.SparepartFragment
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.latber.R
+import com.example.latber.Register
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,13 +15,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
     fun toRegisterPage(view: View) {
-        var intentRegister = Intent(this,Register::class.java)
+        var intentRegister = Intent(this, Register::class.java)
         startActivity(intentRegister)
 
     }
 
     fun toSparepartPage(view: View) {
-        var intentSparePart = Intent(this,menu::class.java)
+        var intentSparePart = Intent(this, menu::class.java)
         startActivity(intentSparePart)
         finish()
     }

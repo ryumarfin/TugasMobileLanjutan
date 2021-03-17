@@ -1,4 +1,4 @@
-package com.example.latber
+package com.example.latber.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import com.example.latihanbersama.Market_Item
+import com.example.latber.DETAIL_ITEM
+import com.example.latber.R
 import kotlinx.android.synthetic.main.activity_beli.*
 
 class beli : AppCompatActivity() {
