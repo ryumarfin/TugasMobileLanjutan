@@ -37,7 +37,7 @@
                 <Button
                     android:id="@+id/addimage"
                     android:layout_width="150dp"
-                    android:layout_height="30dp"
+                    android:layout_height="55dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="30dp"
                     android:text="Masukkan Foto"/>
