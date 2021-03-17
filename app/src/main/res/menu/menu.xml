@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_sparepart"
+        android:id="@+id/nav_market"
         android:icon="@drawable/sparepart"
         android:title="Market"
         />
@@ -11,9 +11,9 @@
         android:title="Mechanic"
         />
     <item
-        android:id="@+id/nav_Panggilbensin"
-        android:icon="@drawable/bensin"
-        android:title="Fuel"
+        android:id="@+id/nav_Jual"
+        android:icon="@drawable/ic_baseline_add_24"
+        android:title="Jual"
         />
     <item
         android:id="@+id/nav_history"
@@ -22,5 +22,5 @@
     <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/profile"
-        android:title="Profile"/>
+        android:title="My Profile"/>
 </menu>
