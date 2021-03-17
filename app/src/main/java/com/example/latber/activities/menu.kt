@@ -7,9 +7,9 @@ import com.example.latber.R
 import com.example.latber.fragments.*
 import kotlinx.android.synthetic.main.activity_menu.*
 
-class menu : AppCompatActivity() {
+class menu : AppCompatActivity(), InterfaceData {
 
-    private val sparepartFragment = SparepartListFragment()
+    private val sparepartFragment = SparepartFragment()
     private val panggilbensinFragment = PanggilbensinFragment()
     private val panggilmontirFragment = PanggilmontirFragment()
     private val historyFragment = HistoryFragment()
@@ -32,6 +32,9 @@ class menu : AppCompatActivity() {
             true
         }
 
+
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, panggilbensinFragment).commit()
+
     }
 
     private fun replaceFragment(fragment: Fragment)
@@ -42,4 +45,18 @@ class menu : AppCompatActivity() {
             transaction.commit()
         }
     }
+
+    //implementasi member InterfaceData untuk pengiriman data antar fragment dengan bundle
+    override fun KirimData(edittext: String) {
+        val bundle = Bundle()
+        bundle.putString("data", edittext)
+
+        val transaksi = this.supportFragmentManager.beginTransaction()
+
+
+
+
+    }
+
+
 }

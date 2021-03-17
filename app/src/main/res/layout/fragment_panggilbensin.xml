@@ -28,8 +28,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <ImageView
 
+                <ImageView
                     android:layout_marginTop="0dp"
                     android:layout_width="100dp"
                     android:layout_height="100dp"/>
@@ -46,17 +46,15 @@
             
             <TextView
                 android:layout_marginTop="20dp"
-              
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Detail Barang  "/>
+
             <EditText
                 android:id="@+id/detailBarang"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="Deskripsikan Barang anda">
-
-            </EditText>
+                android:hint="Deskripsikan Barang anda"/>
 
             <TextView
                 android:layout_marginTop="20dp"
