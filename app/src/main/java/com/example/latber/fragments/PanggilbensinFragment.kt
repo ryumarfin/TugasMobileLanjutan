@@ -43,29 +43,30 @@ class PanggilbensinFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var objView = inflater.inflate(R.layout.fragment_panggilbensin, container, false)
-        var btn = objView.findViewById<Button>(R.id.btn_bayarbensin)
-        btn.setOnClickListener {
-            var intentBaru = Intent(activity, metode::class.java)
-            startActivity(intentBaru)
-        }
 
-        var et = objView.findViewById<EditText>(R.id.jumlahbensin)
-        var btnminus = objView.findViewById<ImageButton>(R.id.btn_minbensin)
-        btnminus.setOnClickListener {
-            var jlh = et.text.toString().toInt()
-            if (jlh<=1)
-            else{
-                --jlh
-                et.setText(jlh.toString())
-            }
-        }
-        var btntmbh = objView.findViewById<ImageButton>(R.id.btn_plusbensin)
-        btntmbh.setOnClickListener {
-            var jlh = et.text.toString().toInt()
-            ++jlh
-            et.setText(jlh.toString())
-        }
+        var objView = inflater.inflate(R.layout.fragment_panggilbensin, container, false)
+        /* var btn = objView.findViewById<Button>(R.id.btn_bayarbensin)
+         btn.setOnClickListener {
+             var intentBaru = Intent(activity, metode::class.java)
+             startActivity(intentBaru)
+         }
+
+         var et = objView.findViewById<EditText>(R.id.jumlahbensin)
+         var btnminus = objView.findViewById<ImageButton>(R.id.btn_minbensin)
+         btnminus.setOnClickListener {
+             var jlh = et.text.toString().toInt()
+             if (jlh<=1)
+             else{
+                 --jlh
+                 et.setText(jlh.toString())
+             }
+         }
+         var btntmbh = objView.findViewById<ImageButton>(R.id.btn_plusbensin)
+         btntmbh.setOnClickListener {
+             var jlh = et.text.toString().toInt()
+             ++jlh
+             et.setText(jlh.toString())
+         }*/
         return objView
     }
 

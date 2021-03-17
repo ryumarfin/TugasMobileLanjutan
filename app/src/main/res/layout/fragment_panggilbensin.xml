@@ -5,103 +5,84 @@
     android:layout_height="match_parent"
     tools:context=".fragments.PanggilbensinFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="10dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/MoLineMerah"
-            android:textAllCaps="false"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:text="Panggil Bensin"/>
-        <View
-            android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/MoLineMerah"/>
+        android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:paddingRight="20dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="30dp">
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="Masukkan jumlah (liter) : "
-                android:layout_weight="1"/>
-            <ImageButton
-                android:id="@+id/btn_minbensin"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:paddingBottom="15dp"
-                android:src="@drawable/ic_baseline_minimize_24"
-                android:background="@drawable/roundborder"
-                android:layout_gravity="center"/>
-            <EditText
-                android:id="@+id/jumlahbensin"
-                android:layout_width="50dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:gravity="center"
-                android:text="1"/>
-            <ImageButton
-                android:id="@+id/btn_plusbensin"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_baseline_add_24"
-                android:background="@drawable/roundborder"
-                android:layout_gravity="center"/>
+                android:text="Apa yang ingin anda jual ?"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:id="@+id/tambahFoto"
+                android:layout_margin="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+
+                    android:layout_marginTop="0dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"/>
+
+                <Button
+
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Masukkan Foto"/>
+
+            </LinearLayout>
+            
+            <TextView
+                android:layout_marginTop="20dp"
+              
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detail Barang  "/>
+            <EditText
+                android:id="@+id/detailBarang"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Deskripsikan Barang anda">
+
+            </EditText>
+
+            <TextView
+                android:layout_marginTop="20dp"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Harga Barang  "/>
+            <EditText
+                android:id="@+id/hargaBarang"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="cth: 10000">
+
+            </EditText>
+
+            <Button
+                android:id="@+id/btn_jual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Jual"/>
+            
         </LinearLayout>
 
-        <TextView
-            android:paddingLeft="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Jarak antar :"/>
-        <ImageView
-            android:layout_width="350dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:src="@drawable/map"/>
-        <TextView
-            android:layout_marginTop="5dp"
-            android:paddingLeft="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Biaya antar : Rp. 10.000"/>
-        <TextView
-            android:paddingLeft="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Biaya bensin : Rp. 15.000"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#bbb"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Total : Rp. 25.0000"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_marginBottom="20dp"/>
-        <Button
-            android:id="@+id/btn_bayarbensin"
-            android:layout_width="150dp"
-            android:layout_height="45dp"
-            android:layout_gravity="center"
-            android:background="@drawable/button"
-            android:layout_marginTop="10dp"
-            android:text="Lannjut"
-            android:textColor="@color/white"
-            android:textSize="40px"/>
+    </ScrollView>
 
-    </LinearLayout>
+
 
 </FrameLayout>
