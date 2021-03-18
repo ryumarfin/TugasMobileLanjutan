@@ -11,7 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.example.latber.R
-import kotlinx.android.synthetic.main.activity_beli.*
+import com.example.latber.activities.Market_Item
 
 
 lateinit var imageView: ImageView
@@ -41,13 +41,17 @@ class PanggilbensinFragment : Fragment() {
         }
     }
 
+
+    //inisialisasi InterfaceData
+    private lateinit var interfaceData: InterfaceData
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-        var objView = inflater.inflate(R.layout.fragment_panggilbensin, container, false)
+        //agar dapat memanggil atau menggunakan property dari layout fragment
+        var objView = inflater.inflate(R.layout.fragment_posting, container, false)
 
         imageView = objView.findViewById<ImageView>(R.id.gambar)
         button = objView.findViewById<Button>(R.id.addimage)
@@ -55,6 +59,21 @@ class PanggilbensinFragment : Fragment() {
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(gallery, pickImage)
         }
+
+        //menambahkan interfacedata dengan aktivitas dari InterfaceData
+        interfaceData = activity as InterfaceData
+        //inisialisasi komponen dari fragment
+        val btnPost = objView.findViewById<Button>(R.id.btn_post)
+        val detailBarang = objView.findViewById<EditText>(R.id.detailBarang)
+        val detailHarga = objView.findViewById<EditText>(R.id.hargaBarang)
+
+        btnPost.setOnClickListener{
+            //pengiriman data oleh property KirimData
+            interfaceData.KirimData(detailBarang.text.toString(), detailHarga.text.toString())
+            detailBarang.setText("")
+            detailHarga.setText("")
+        }
+
 
 
         /* var btn = objView.findViewById<Button>(R.id.btn_bayarbensin)

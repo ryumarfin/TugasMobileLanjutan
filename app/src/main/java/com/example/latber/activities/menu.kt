@@ -2,6 +2,7 @@ package com.example.latber.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.example.latber.R
 import com.example.latber.fragments.*
@@ -11,7 +12,7 @@ class menu : AppCompatActivity(), InterfaceData {
 
     private val sparepartFragment = SparepartFragment()
     private val panggilbensinFragment = PanggilbensinFragment()
-    private val panggilmontirFragment = PanggilmontirFragment()
+    private val postSuksesFragment = PanggilmontirFragment()
     private val historyFragment = HistoryFragment()
     private val profileFragment = ProfileFragment()
 
@@ -25,7 +26,7 @@ class menu : AppCompatActivity(), InterfaceData {
             when(it.itemId) {
                 R.id.nav_market -> replaceFragment(sparepartFragment)
                 R.id.nav_Jual -> replaceFragment(panggilbensinFragment)
-                R.id.nav_panggilmontir -> replaceFragment(panggilmontirFragment)
+                R.id.nav_panggilmontir -> replaceFragment(postSuksesFragment)
                 R.id.nav_history -> replaceFragment(historyFragment)
                 R.id.nav_profile -> replaceFragment(profileFragment)
             }
@@ -46,16 +47,42 @@ class menu : AppCompatActivity(), InterfaceData {
         }
     }
 
+//    //implementasi member InterfaceData untuk pengiriman data antar fragment dengan bundle
+//    override fun KirimData(edittext: String) {
+//        val bundle = Bundle()
+//        bundle.putString("dataDetailBarang", edittext)
+//        bundle.putString("dataHarga", edittext)
+//
+//        val transaksi = this.supportFragmentManager.beginTransaction()
+//
+//        postSuccessFragment.arguments = bundle
+//
+//        transaksi.replace(R.id.fragment_container, postSuccessFragment)
+//
+//        transaksi.addToBackStack(null)
+//
+//        transaksi.commit()
+////        transaksi.hide()
+//    }
+
     //implementasi member InterfaceData untuk pengiriman data antar fragment dengan bundle
-    override fun KirimData(edittext: String) {
+    override fun KirimData(edittext: String, edittext2: String) {
+        //inisialisasi bundle
         val bundle = Bundle()
-        bundle.putString("data", edittext)
+        //buat key untuk masing2 data yang akan dikirim
+        bundle.putString("dataDetailBarang", edittext)
+        bundle.putString("dataHarga", edittext2)
 
+        //untuk memulai transaksi dan kirim bundle ke property arguments dari postSuccessFragment
         val transaksi = this.supportFragmentManager.beginTransaction()
+        postSuksesFragment.arguments = bundle
 
-
-
-
+        //menimpa fragment posting dengan postSuccessFragment
+        transaksi.replace(R.id.fragment_container, postSuksesFragment)
+        //agar tdak langsung keluar karena tidak ada stack di fragment_container
+        transaksi.addToBackStack(null)
+        //lakukan commit
+        transaksi.commit()
     }
 
 

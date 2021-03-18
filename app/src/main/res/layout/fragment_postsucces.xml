@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.PanggilmontirFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post Success"
+            android:textAllCaps="false"
+            android:textColor="@color/MoLineMerah"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/MoLineMerah" />
+
+        <ImageView
+            android:layout_marginTop="25dp"
+            android:id="@+id/gambarPost"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/pic1"/>
+
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/detailBarangPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="ABC"
+            android:textColor="@color/black"
+            android:maxLength="30"
+            android:textSize="15dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Rp. "/>
+            <TextView
+                android:id="@+id/hargaPost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="85.000"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="/pcs"/>
+        </LinearLayout>
+
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:background="@color/MoLineAbu"-->
+<!--            android:padding="10dp">-->
+<!--            <Spinner-->
+<!--                android:id="@+id/spinnerJenisK"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:padding="10dp"-->
+<!--                android:background="@color/MoLinePutih"-->
+<!--                android:entries="@array/listJenisKendaraan"-->
+<!--                tools:ignore="MissingConstraints" />-->
+
+<!--            <ImageView-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:layout_width="300dp"-->
+<!--                android:layout_height="250dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:background="@color/white"-->
+<!--                android:src="@drawable/map"/>-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/keluhan"-->
+<!--                android:layout_width="300dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:padding="5dp"-->
+<!--                android:background="@color/MoLinePutih"-->
+<!--                android:hint="Ceritakan Keluhan Motor Anda"/>-->
+
+<!--            <Button-->
+<!--                android:id="@+id/btn_cariMontir"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="45dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:background="@drawable/button"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:text="Cari Montir"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="40px"-->
+<!--                tools:ignore="MissingConstraints" />-->
+<!--        </LinearLayout>-->
+    </LinearLayout>
+
+</FrameLayout>
