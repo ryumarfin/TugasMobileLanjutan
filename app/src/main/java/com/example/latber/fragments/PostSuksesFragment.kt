@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import com.example.latber.R
 import com.example.latber.activities.dapatMontir
 
@@ -33,19 +34,30 @@ class PanggilmontirFragment : Fragment() {
         }
     }
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var objView = inflater.inflate(R.layout.fragment_panggilmontir, container, false)
-        var btn = objView.findViewById<Button>(R.id.btn_cariMontir)
-        btn.setOnClickListener {
-            var intentBaru = Intent(activity, dapatMontir::class.java)
-            startActivity(intentBaru)
-        }
-        return objView
 
+        //agar dapat memanggil atau menggunakan property dari layout fragment
+        var objView = inflater.inflate(R.layout.fragment_postsucces, container, false)
+
+        //inisialisasi detailBarang & detailHarga dengan data sesuai dengan key
+        var detailBarang = arguments?.getString("dataDetailBarang")
+        var detailHarga = arguments?.getString("dataHarga")
+
+        //inisialisasi komponen dari fragment
+        val hasil = objView.findViewById<TextView>(R.id.detailBarangPost)
+        val harga = objView.findViewById<TextView>(R.id.hargaPost)
+
+        //mengatur Text atau menampilkan data yang dikirim dari PostingFragment.kt
+        hasil.setText(detailBarang)
+        harga.setText(detailHarga)
+
+        return objView
     }
 
     companion object {

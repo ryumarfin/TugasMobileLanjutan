@@ -17,7 +17,8 @@
         <activity android:name=".activities.metode"></activity>
         <activity android:name=".activities.done"></activity>
         <activity android:name=".activities.dapatMontir" />
-        <activity android:name=".activities.menu">
+        <activity android:name=".activities.menu"
+            android:configChanges="orientation|screenSize|keyboardHidden">
 
             <!-- android:theme="@style/NoAction" -->
         </activity>

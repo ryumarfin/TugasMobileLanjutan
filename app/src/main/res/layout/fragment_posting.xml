@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.PanggilbensinFragment">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,15 +67,16 @@
                 android:id="@+id/hargaBarang"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="cth: 10000">
+                android:hint="cth: 10000"
+                android:inputType="number">
             </EditText>
 
             <Button
-                android:id="@+id/btn_jual"
+                android:id="@+id/btn_post"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Jual"/>
+                android:text="Post"/>
         </LinearLayout>
-    </ScrollView>
+<!--    </ScrollView>-->
 </FrameLayout>
