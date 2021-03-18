@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.latber">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,20 +12,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Latber">
-        <activity android:name=".activities.rating"></activity>
-        <activity android:name=".activities.metode"></activity>
-        <activity android:name=".activities.done"></activity>
+        <receiver
+            android:name=".airPlaneReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".activities.rating" />
+        <activity android:name=".activities.metode" />
+        <activity android:name=".activities.done" />
         <activity android:name=".activities.dapatMontir" />
         <activity android:name=".activities.menu"
             android:configChanges="orientation|screenSize|keyboardHidden">
 
             <!-- android:theme="@style/NoAction" -->
         </activity>
-
         <activity
             android:name=".activities.beli"
-            android:label="Beli Langsung"
             android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="Beli Langsung"
             android:parentActivityName=".Sparepart" />
         <activity
             android:name=".Sparepart"
@@ -37,7 +44,9 @@
             android:label="Register"
             android:parentActivityName=".activities.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"/>
-        <activity android:name=".activities.MainActivity" android:configChanges="orientation|screenSize|keyboardHidden">
+        <activity
+            android:name=".activities.MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
