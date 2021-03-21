@@ -1,17 +1,27 @@
 package com.example.latber.fragments
 
 import android.app.Activity.RESULT_OK
-import android.content.Intent
+import android.app.AlertDialog
+import android.content.*
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityCompat.requestPermissions
+import androidx.fragment.app.Fragment
 import com.example.latber.R
-import com.example.latber.activities.Market_Item
+import com.example.latber.REQUEST_CAMERA
+import com.example.latber.REQUEST_TAKEPICTURE
+import com.example.latber.RESULT_CAMERA
 
 
 lateinit var imageView: ImageView
@@ -28,6 +38,18 @@ private const val ARG_PARAM2 = "param2"
  * Use the [PanggilbensinFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+
+var allow = true
+private val MyBatteryReceiverr = object : BroadcastReceiver() {
+    override fun onReceive(context: Context, intent: Intent) {
+        if (intent.action.equals(Intent.ACTION_BATTERY_LOW))
+            allow = false
+        else
+            allow = true
+    }
+}
+
+
 class PanggilbensinFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -39,15 +61,33 @@ class PanggilbensinFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+//        var myBatteryReceiver = MyBatteryReceiverr()
+        var filterBattery = IntentFilter()
+        filterBattery.addAction(Intent.ACTION_BATTERY_LOW)
+        filterBattery.addAction(Intent.ACTION_BATTERY_OKAY)
+
+        activity?.registerReceiver(MyBatteryReceiverr,filterBattery)
+
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        activity?.unregisterReceiver(MyBatteryReceiverr)
+    }
+
+
+
+
+
 
 
     //inisialisasi InterfaceData
     private lateinit var interfaceData: InterfaceData
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         //agar dapat memanggil atau menggunakan property dari layout fragment
@@ -56,8 +96,32 @@ class PanggilbensinFragment : Fragment() {
         imageView = objView.findViewById<ImageView>(R.id.gambar)
         button = objView.findViewById<Button>(R.id.addimage)
         button.setOnClickListener {
-            val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
-            startActivityForResult(gallery, pickImage)
+
+//            val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+//            startActivityForResult(gallery, pickImage)
+
+            var dialogBuilder = AlertDialog.Builder(activity!!)
+                    .setTitle("Add Image")
+                    .setPositiveButton("CAMERA", DialogInterface.OnClickListener { dialog, id ->
+                        if(allow == false){
+                            Toast.makeText(context, "Please Charge Your Phone", Toast.LENGTH_SHORT).show()
+                        }
+                        else{
+                            if (ActivityCompat.checkSelfPermission(context!!, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                            requestPermissions(activity!!, arrayOf(android.Manifest.permission.CAMERA), REQUEST_CAMERA) }
+                            else {
+                                var takePicture = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                                if (takePicture.resolveActivity(activity!!.getPackageManager()) != null)
+                                    startActivityForResult(takePicture, REQUEST_TAKEPICTURE)
+                            }
+                        }
+                    })
+                    .setNeutralButton("GALERY", DialogInterface.OnClickListener { dialog, id ->
+                        val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+                        startActivityForResult(gallery, pickImage)
+                    })
+                val alert = dialogBuilder.create()
+                alert.show()
         }
 
         //menambahkan interfacedata dengan aktivitas dari InterfaceData
@@ -75,29 +139,6 @@ class PanggilbensinFragment : Fragment() {
         }
 
 
-
-        /* var btn = objView.findViewById<Button>(R.id.btn_bayarbensin)
-         btn.setOnClickListener {
-             var intentBaru = Intent(activity, metode::class.java)
-             startActivity(intentBaru)
-         }
-
-         var et = objView.findViewById<EditText>(R.id.jumlahbensin)
-         var btnminus = objView.findViewById<ImageButton>(R.id.btn_minbensin)
-         btnminus.setOnClickListener {
-             var jlh = et.text.toString().toInt()
-             if (jlh<=1)
-             else{
-                 --jlh
-                 et.setText(jlh.toString())
-             }
-         }
-         var btntmbh = objView.findViewById<ImageButton>(R.id.btn_plusbensin)
-         btntmbh.setOnClickListener {
-             var jlh = et.text.toString().toInt()
-             ++jlh
-             et.setText(jlh.toString())
-         }*/
         return objView
     }
 
@@ -108,7 +149,13 @@ class PanggilbensinFragment : Fragment() {
             imageUri = data?.data
             imageView.setImageURI(imageUri)
         }
+        else if(resultCode == RESULT_CAMERA && requestCode == REQUEST_TAKEPICTURE){
+            var tumbnail = data?.extras?.get("data")
+            imageView.setImageBitmap(tumbnail as Bitmap)
+        }
     }
+
+
     companion object {
         /**
          * Use this factory method to create a new instance of
