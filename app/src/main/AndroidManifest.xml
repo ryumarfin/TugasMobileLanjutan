@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,12 +15,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Latber">
+
         <receiver
             android:name=".airPlaneReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+                <action android:name="android.intent.action.AIRPLANE_MODE" />
             </intent-filter>
         </receiver>
 
@@ -25,7 +29,8 @@
         <activity android:name=".activities.metode" />
         <activity android:name=".activities.done" />
         <activity android:name=".activities.dapatMontir" />
-        <activity android:name=".activities.menu"
+        <activity
+            android:name=".activities.menu"
             android:configChanges="orientation|screenSize|keyboardHidden">
 
             <!-- android:theme="@style/NoAction" -->
@@ -41,9 +46,9 @@
             android:theme="@style/NoAction" />
         <activity
             android:name=".Register"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="Register"
-            android:parentActivityName=".activities.MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"/>
+            android:parentActivityName=".activities.MainActivity" />
         <activity
             android:name=".activities.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden">
