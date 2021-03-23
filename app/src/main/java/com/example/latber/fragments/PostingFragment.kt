@@ -149,7 +149,7 @@ class PanggilbensinFragment : Fragment() {
             imageUri = data?.data
             imageView.setImageURI(imageUri)
         }
-        else if(resultCode == RESULT_CAMERA && requestCode == REQUEST_TAKEPICTURE){
+        else if(resultCode == RESULT_OK && requestCode == REQUEST_TAKEPICTURE){
             var tumbnail = data?.extras?.get("data")
             imageView.setImageBitmap(tumbnail as Bitmap)
         }
