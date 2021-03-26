@@ -6,6 +6,7 @@ import android.content.*
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.BatteryManager
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
@@ -39,15 +40,34 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 
+// variabel allow untuk menentukan apakah diperbolehkan untuk membuka camera
 var allow = true
 private val MyBatteryReceiverr = object : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
+        // cek apakah status batterynya low (bawah 15%) atau berstatus okay
         if (intent.action.equals(Intent.ACTION_BATTERY_LOW))
-            allow = false
+            allow = false           //jika battery berstatus low, maka tidak diberikan izin (allow = false)
         else
-            allow = true
+            allow = true            //jika battery berstatus okay, maka  diberikan izin (allow = true)
     }
 }
+
+
+
+//inisialisasi batteryPercent
+var batteryPercent : Int = 0
+private val PercentBatteryReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+    override fun onReceive(ctxt: Context?, intent: Intent) {
+        // mengambil data battery level dari intent status battery
+        val level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1)
+        // mengambil data battery scale dari intent status battery
+        val scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1)
+        // menghitung persen battery
+        batteryPercent = (level * 100 / scale.toFloat()).toInt()
+    }
+}
+
+
 
 
 class PanggilbensinFragment : Fragment() {
@@ -62,18 +82,29 @@ class PanggilbensinFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
-//        var myBatteryReceiver = MyBatteryReceiverr()
-        var filterBattery = IntentFilter()
-        filterBattery.addAction(Intent.ACTION_BATTERY_LOW)
-        filterBattery.addAction(Intent.ACTION_BATTERY_OKAY)
+        var batteryStatus = IntentFilter()
+        //tambahkan action yang ingin di handle
+        //utk kasus ini, kami menghandle status batteryLow & batterOkay
+        batteryStatus.addAction(Intent.ACTION_BATTERY_LOW)
+        batteryStatus.addAction(Intent.ACTION_BATTERY_OKAY)
 
-        activity?.registerReceiver(MyBatteryReceiverr,filterBattery)
+        //mendaftarkan receiver di dlm PostingFragment agar PostingFragment dapat menangkap broadcast
+        activity?.registerReceiver(MyBatteryReceiverr, batteryStatus)
+
+
+        var batteryPercentFilter = IntentFilter()
+        //tambahkan action untuk menghandle perubahan pada battery
+        batteryPercentFilter.addAction(Intent.ACTION_BATTERY_CHANGED)
+        //daftarkan receiver agar Posting Fragment dapat menangkap broadcast
+        activity?.registerReceiver(PercentBatteryReceiver, batteryPercentFilter)
 
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        //unregister receiver
         activity?.unregisterReceiver(MyBatteryReceiverr)
+        activity?.unregisterReceiver(PercentBatteryReceiver)
     }
 
 
@@ -103,22 +134,30 @@ class PanggilbensinFragment : Fragment() {
             var dialogBuilder = AlertDialog.Builder(activity!!)
                     .setTitle("Add Image")
                     .setPositiveButton("CAMERA", DialogInterface.OnClickListener { dialog, id ->
-                        if(allow == false){
+                        //cek apakah diberikan izin untuk membuka kamera (allow = true)
+                        if (allow == false)     // jika allow = false (battery berstatus low)
                             Toast.makeText(context, "Please Charge Your Phone", Toast.LENGTH_SHORT).show()
-                        }
-                        else{
+                        else {      // jika allow = true (battery berstatus okay)
+                            //cek apakah user sudah memberikan akses kepada aplikasi untuk membuka camera
                             if (ActivityCompat.checkSelfPermission(context!!, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                            requestPermissions(activity!!, arrayOf(android.Manifest.permission.CAMERA), REQUEST_CAMERA) }
+                                //jika belum diberikan akses, maka lakukan request/minta izin untuk mengakses camera
+                                requestPermissions(activity!!, arrayOf(android.Manifest.permission.CAMERA), REQUEST_CAMERA)
+                            }
                             else {
+                                //jika user telah memberikan akses camera
                                 var takePicture = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                                 if (takePicture.resolveActivity(activity!!.getPackageManager()) != null)
                                     startActivityForResult(takePicture, REQUEST_TAKEPICTURE)
                             }
                         }
                     })
-                    .setNeutralButton("GALERY", DialogInterface.OnClickListener { dialog, id ->
+                    .setNegativeButton("GALERY", DialogInterface.OnClickListener { dialog, id ->
                         val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
                         startActivityForResult(gallery, pickImage)
+                    })
+                    .setNeutralButton("Cek % Battery", DialogInterface.OnClickListener{ dialog, id ->
+                        //munculkan Toast yang berisi persentase battery saat ini
+                        Toast.makeText(context, batteryPercent.toString(), Toast.LENGTH_SHORT).show()
                     })
                 val alert = dialogBuilder.create()
                 alert.show()
@@ -149,7 +188,7 @@ class PanggilbensinFragment : Fragment() {
             imageUri = data?.data
             imageView.setImageURI(imageUri)
         }
-        else if(resultCode == RESULT_CAMERA && requestCode == REQUEST_TAKEPICTURE){
+        else if(resultCode == RESULT_OK && requestCode == REQUEST_TAKEPICTURE){
             var tumbnail = data?.extras?.get("data")
             imageView.setImageBitmap(tumbnail as Bitmap)
         }
