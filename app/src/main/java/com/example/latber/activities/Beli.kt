@@ -46,6 +46,7 @@ class beli : AppCompatActivity() {
     fun kehalamanPembayaran(view: View) {
         var intentReplay = Intent (this, metode::class.java)
         startActivity(intentReplay)
+        finish()
 
     }
 }
