@@ -51,4 +51,8 @@ dependencies {
 
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'org.jetbrains.anko:anko-common:0.10.8'
+
+
+//    Implementasikan library AsyncHttpClient
+    implementation 'com.loopj.android:android-async-http:1.4.11'
 }
