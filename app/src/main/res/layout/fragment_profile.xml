@@ -80,6 +80,13 @@
             android:text="Logout"
             android:textColor="@color/white"
             android:textSize="50px" />
+
+        <TextView
+            android:id="@+id/quotes"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </FrameLayout>
