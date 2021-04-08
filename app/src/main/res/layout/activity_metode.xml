@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="30dp"
-            android:text="Bayar dengan uang tunai ketika Montir datang mengantar pesanan" />
+            android:text="Bayar dengan uang tunai ketika kurir datang mengantar pesanan" />
 
         <RadioButton
             android:id="@+id/saldo"
@@ -34,20 +34,21 @@
 
     </RadioGroup>
 
-    <ImageView
-        android:layout_width="800px"
-        android:layout_height="400px"
-        android:layout_marginTop="50px"
-        android:src="@drawable/molinecard" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp"
+        android:text="Bayar dengan Saldo Gameplace dapatkan cashback 10%" />
+
 
     <Button
+        android:id="@+id/btnBayar1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="300dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:onClick="toDone"
         android:text="Bayar"
         android:textColor="@color/white" />
 
