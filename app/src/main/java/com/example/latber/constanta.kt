@@ -11,3 +11,7 @@ const val REQUEST_CAMERA = 123
 const val REQUEST_TAKEPICTURE = 124
 
 const val RESULT_CAMERA = 125
+
+const val QUOTES_DATA = "quotes_data"
+
+const val QUOTES_SIGNAL = "quotes_signal"
