@@ -79,7 +79,7 @@
             android:onClick="toRegisterPage"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Create Your Mo-Line Account"
+            android:text="Create Your  Account"
             android:textSize="50px"
             android:textAllCaps="false"
             android:backgroundTint="@color/MoLinePutih"
