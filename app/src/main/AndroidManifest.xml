@@ -18,6 +18,10 @@
         android:theme="@style/Theme.Latber">
         <activity android:name=".webview"></activity>
 
+        <service android:name=".MyIntentService" />
+
+
+
         <receiver
             android:name=".airPlaneReceiver"
             android:enabled="true"
