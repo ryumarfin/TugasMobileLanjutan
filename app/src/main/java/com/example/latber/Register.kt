@@ -12,14 +12,18 @@ import android.media.MediaPlayer
 import android.os.*
 import androidx.appcompat.app.AppCompatActivity
 import android.provider.MediaStore
+import android.view.Menu
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.app.TaskStackBuilder
 import com.bumptech.glide.Glide
+import com.example.latber.activities.Market_Item
 import com.example.latber.activities.menu
+import com.example.latber.fragments.ProfileFragment
 import com.example.latber.fragments.imageView
 import kotlinx.android.synthetic.main.activity_register.*
 import org.jetbrains.anko.doAsync
@@ -111,13 +115,20 @@ class Register : AppCompatActivity() {
 
     //fungsi untuk memunculkan atau mengirim notifikasi
     private fun sendNotification(){
-        //buat intent agar ketika notifikasi di klik maka beralih ke menu activity
+        //buat intent agar ketika notifikasi di klik maka beralih ke ProfileFragment
         val intent:Intent = Intent(this,menu::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
+
+        //membaut TaskStackBuilder untuk memulai pendingIntent dan sekaligus backstack nya
+        var myPendingIntent = TaskStackBuilder.create(this)
+                .addNextIntentWithParentStack(intent)       //this (register.kt) akan menjadi Parent dari NotifyDetailIntent
+                .getPendingIntent(11111, PendingIntent.FLAG_UPDATE_CURRENT)
+
+
         //membuat pending intent
-        val pendingIntent: PendingIntent = PendingIntent.getActivity(this
-                ,0,intent,0)
+//        val pendingIntent: PendingIntent = PendingIntent.getActivity(this
+//                ,0,intent,0)
 
         //menkonversi gambar menjadi bitmap agar dapat dimunculkan ke notifikasi
         val bitmap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.montirface)
@@ -141,7 +152,7 @@ class Register : AppCompatActivity() {
                 //menambahkan gambar ke dalam notifikasi
                 .setStyle(NotificationCompat.BigPictureStyle().bigPicture(bitmap))
               //  memanggil pending intent agar dapat melakukan aksi ketika di klik
-                .setContentIntent(pendingIntent)
+                .setContentIntent(myPendingIntent)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
         with(NotificationManagerCompat.from(this)){
