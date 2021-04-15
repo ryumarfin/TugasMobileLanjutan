@@ -1,5 +1,8 @@
 package com.example.latber.activities
 
+import android.annotation.SuppressLint
+import android.app.AlarmManager
+import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
@@ -8,9 +11,10 @@ import android.view.View
 import com.example.latber.R
 import com.example.latber.Register
 import com.example.latber.airPlaneReceiver
+import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         var filter = IntentFilter()
         filter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
         registerReceiver(AirplaneReceiver, filter)
+
+
     }
 
 
@@ -35,6 +41,8 @@ class MainActivity : AppCompatActivity() {
         startActivity(intentSparePart)
         finish()
     }
+
+
 
 
 }
