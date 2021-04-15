@@ -1,5 +1,8 @@
 package com.example.latber.activities
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,10 +11,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.latber.DETAIL_ITEM
+import com.example.latber.MyAlarmManager
 import com.example.latber.R
 import kotlinx.android.synthetic.main.activity_beli.*
+import java.util.*
 
 class beli : AppCompatActivity() {
+    var mAlarmManager : AlarmManager? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_beli)
@@ -24,6 +30,20 @@ class beli : AppCompatActivity() {
         findViewById<TextView>(R.id.keterangan).setText(item.detail)
         findViewById<TextView>(R.id.harga).setText(item.price.toString())
 
+        //Membentuk alarmManager
+        mAlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+
+        setAlarm.setOnClickListener(){
+            var alarmTimer  = Calendar.getInstance()
+            alarmTimer.add(Calendar.SECOND, 5)
+
+            var sendIntent = Intent(this, MyAlarmManager::class.java)
+            sendIntent.putExtra(EXTRA_PESAN, "Pesan sekarang juga sebelum promo berakhir")
+            var mPendingIntent = PendingIntent.getBroadcast(this, 101, sendIntent, 0)
+
+            mAlarmManager?.set(AlarmManager.RTC, alarmTimer.timeInMillis, mPendingIntent)
+            Toast.makeText(this, "Reminder telah dibuat", Toast.LENGTH_SHORT).show()
+        }
 
     }
 

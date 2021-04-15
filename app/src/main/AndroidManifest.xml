@@ -15,16 +15,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Latber">
-<!--        register QouteScheduler sebagai service-->
+        <receiver
+            android:name=".MyAlarmManager"
+            android:enabled="true"
+            android:exported="true"></receiver>
+        <!-- register QouteScheduler sebagai service -->
         <service
             android:name=".jobScheduler.QuotesScheduler"
             android:enabled="true"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
-
         <service android:name=".MyIntentService" />
-
-
 
         <receiver
             android:name=".airPlaneReceiver"
