@@ -42,8 +42,8 @@
         <activity android:name=".activities.dapatMontir" />
         <activity
             android:name=".activities.menu"
-            android:configChanges="orientation|screenSize|keyboardHidden">
-
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName=".Register">
             <!-- android:theme="@style/NoAction" -->
         </activity>
         <activity
