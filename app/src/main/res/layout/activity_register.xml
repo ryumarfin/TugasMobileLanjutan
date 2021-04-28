@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Register">
+    tools:context=".Register"
+    android:id="@+id/registerLayout">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -26,7 +27,9 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="10dp"
         android:layout_marginTop="50px"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <EditText
             android:id="@+id/et_firstname_Register"
@@ -36,7 +39,8 @@
             android:background="@drawable/border"
             android:hint="First Name"
             android:paddingLeft="20dp"
-            android:singleLine="true" />
+            android:singleLine="true"
+            />
 
         <EditText
             android:id="@+id/et_lastname_Register"
