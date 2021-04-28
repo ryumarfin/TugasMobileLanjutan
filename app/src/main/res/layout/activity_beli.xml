@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.beli">
+    tools:context=".activities.beli"
+    android:id="@+id/beliLayout">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -13,7 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10pt">
+        android:padding="10pt"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
     <TextView
         android:layout_width="match_parent"
