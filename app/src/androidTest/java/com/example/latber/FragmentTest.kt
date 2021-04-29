@@ -28,12 +28,13 @@ class FragmentTest {
     fun FragmentNav() {
         //melakukan action click pada btn_login
         onView(withId(R.id.btn_login)).perform(click())
+
+
         //mengecek apakah tampilan yang muncul sesuai dengan yg diharapkan (sesuai dgn menuLayout)
         onView(withId(R.id.menuLayout)).check(matches(isDisplayed()))
-
+        //melakukan action click pada item gridview yg ke-3
         onData(allOf()).inAdapterView(withId(R.id.myGridView)).atPosition(2).perform(click())
-//        onView(withId(R.id.item_sparepare)).perform(click())
-
-//        onView(withId(R.id.beliLayout)).check(matches(isDisplayed()))
+        //mengecek apakah tampilan yg muncul sesuai dgn beliLayout
+        onView(withId(R.id.beliLayout)).check(matches(isDisplayed()))
     }
 }
