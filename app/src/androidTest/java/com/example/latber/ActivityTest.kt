@@ -1,15 +1,17 @@
 package com.example.latber
 
 import androidx.test.core.app.ActivityScenario
+import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
+import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.example.latber.activities.MainActivity
+import org.hamcrest.core.AllOf
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -53,6 +55,36 @@ class ActivityTest{
         //mengecek apakah tampilan setelah backpress adalah loginLayout
         onView(withId(R.id.loginLayout)).check(matches((isDisplayed())))
     }
+
+    @Test
+    fun test_loginValidation() {
+
+        onView(withId(R.id.et_email)).perform(ViewActions.typeText("blackscreen"))
+        onView(withId(R.id.et_password)).perform(ViewActions.typeText("123456"))
+        onView(withId(R.id.btn_login)).perform(click())
+        onView(withId(R.id.menuLayout)).check(matches((isDisplayed())))
+    }
+
+    @Test
+    fun test_jumlahPembelian() {
+
+        onView(withId(R.id.et_email)).perform(ViewActions.typeText("blackscreen"))
+        onView(withId(R.id.et_password)).perform(ViewActions.typeText("123456"))
+        onView(withId(R.id.btn_login)).perform(click())
+        Espresso.onData(AllOf.allOf()).inAdapterView(withId(R.id.myGridView)).atPosition(2).perform(click())
+        onView(withId(R.id.btn_plus)).perform(click())
+        onView(withId(R.id.jumlahbarang)).check(matches(withText("2")))
+
+
+
+    }
+
+
+
+
+
+
+
 }
 
 
