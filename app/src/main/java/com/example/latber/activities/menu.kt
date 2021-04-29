@@ -25,7 +25,7 @@ class menu : AppCompatActivity(), InterfaceData {
         bottom_navigation.setOnNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.nav_market -> replaceFragment(sparepartFragment)
-                R.id.nav_Jual -> replaceFragment(panggilbensinFragment)
+                R.id.nav_Post -> replaceFragment(panggilbensinFragment)
                 R.id.nav_panggilmontir -> replaceFragment(postSuksesFragment)
                 R.id.nav_history -> replaceFragment(historyFragment)
                 R.id.nav_profile -> replaceFragment(profileFragment)
