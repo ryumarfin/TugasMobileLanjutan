@@ -75,10 +75,29 @@ class ActivityTest{
         onView(withId(R.id.btn_plus)).perform(click())
         onView(withId(R.id.jumlahbarang)).check(matches(withText("2")))
 
-
-
     }
 
+    @Test
+    fun test_postingItem() {
+        onView(withId(R.id.btn_login)).perform(click())
+        onView(withId(R.id.nav_Jual)).perform(click())
+        onView(withId(R.id.detailBarang)).perform(ViewActions.typeText("blackscreen"))
+        pressBack()
+        onView(withId(R.id.hargaBarang)).perform(ViewActions.typeText("100000"))
+        pressBack()
+        onView(withId(R.id.btn_post)).perform(click())
+        onView(withId(R.id.detailBarangPost)).check(matches(withText("blackscreen")))
+    }
+
+
+/*    @Test
+    fun test_metodePembayaran() {
+        onView(withId(R.id.btn_login)).perform(click())
+        *//*Espresso.onData(AllOf.allOf()).inAdapterView(withId(R.id.myGridView)).atPosition(2).perform(click())*//*
+        onView(withId(R.id.tv2)).perform(click())
+        onView(withId(R.id.btnBayar)).perform(click())
+
+    }*/
 
 
 
