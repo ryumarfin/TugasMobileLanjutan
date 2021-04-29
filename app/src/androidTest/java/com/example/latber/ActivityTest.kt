@@ -66,7 +66,7 @@ class ActivityTest{
     }
 
     @Test
-    fun test_metodePembayaran() {
+    fun test_jumlahPembelian() {
 
         onView(withId(R.id.et_email)).perform(ViewActions.typeText("blackscreen"))
         onView(withId(R.id.et_password)).perform(ViewActions.typeText("123456"))
