@@ -80,7 +80,7 @@ class ActivityTest{
     @Test
     fun test_postingItem() {
         onView(withId(R.id.btn_login)).perform(click())
-        onView(withId(R.id.nav_Jual)).perform(click())
+        onView(withId(R.id.nav_Post)).perform(click())
         onView(withId(R.id.detailBarang)).perform(ViewActions.typeText("blackscreen"))
         pressBack()
         onView(withId(R.id.hargaBarang)).perform(ViewActions.typeText("100000"))

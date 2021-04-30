@@ -1,19 +1,39 @@
 package com.example.latber
 
-import androidx.test.ext.junit.rules.ActivityScenarioRule
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.example.latber.activities.MainActivity
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.RootMatchers.withDecorView
+import androidx.test.rule.ActivityTestRule
+import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.CoreMatchers.not
 import org.junit.Rule
+import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4ClassRunner::class)
 class RegisterTest {
-
+    //menjalankan MainActivity sebelum pengujian (@Test) dimulai
     @get :Rule
+    val activityRule = ActivityTestRule(MainActivity::class.java)
 
-    val activityRule = ActivityScenarioRule(MainActivity::class.java)
     //pada fungsi test dibawah kita akan mengecek apakah validasi/ pemeriksaan terhadap input user sudah sukses dijalankan
-//    @Test
+    @Test
+    fun textRegistrasi_AllEmpty(){
+        //melakukan action click pada btn_register
+        onView(withId(R.id.btn_register)).perform(click())
+        //click tombol register tanpa melakukan pengisian form
+        onView(withId(R.id.btn_Register)).perform(click())
+
+        onView(withText("Please fill your First Name")).inRoot(
+                withDecorView(not(`is`(activityRule.getActivity().getWindow().getDecorView())))
+                //kita menyuruh bot untuk melakukan check apabila toast message yang ditampilkan sudah sesuai dengan yang harus ditampilkan
+        ).check(matches(isDisplayed()))
+    }
+
 //    fun TestUsernameNotEmpty(){
 //        //kita akan langsung mencoba menyuruh bot menekan tombol register tanpa melakukan pengisian form
 //        onView(withId(R.id.register)).perform(scrollTo()).perform(ViewActions.click())
