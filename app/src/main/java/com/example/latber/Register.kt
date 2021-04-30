@@ -1,40 +1,12 @@
 package com.example.latber
 
-import android.annotation.SuppressLint
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
-import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.media.MediaPlayer
 import android.os.*
 import androidx.appcompat.app.AppCompatActivity
-import android.provider.MediaStore
 import android.util.Patterns
-import android.view.Menu
-import android.view.View
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-import androidx.core.app.TaskStackBuilder
-import com.bumptech.glide.Glide
-import com.example.latber.activities.Market_Item
 import com.example.latber.activities.menu
-import com.example.latber.fragments.ProfileFragment
-import com.example.latber.fragments.imageView
 import kotlinx.android.synthetic.main.activity_register.*
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.doAsyncResult
-import org.jetbrains.anko.uiThread
-import java.io.IOException
-import java.io.InputStream
-import java.net.HttpURLConnection
-import java.net.URL
 
 //2. pembuatan extra status
 private const val EXTRA_STATUS = "ExtraStatus"

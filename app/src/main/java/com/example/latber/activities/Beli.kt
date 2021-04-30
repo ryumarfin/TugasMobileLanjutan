@@ -13,6 +13,7 @@ import android.widget.Toast
 import com.example.latber.DETAIL_ITEM
 import com.example.latber.MyAlarmManager
 import com.example.latber.R
+import com.example.latber.data.Market_Item
 import kotlinx.android.synthetic.main.activity_beli.*
 import java.util.*
 

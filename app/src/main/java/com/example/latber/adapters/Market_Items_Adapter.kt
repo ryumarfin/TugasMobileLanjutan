@@ -11,7 +11,8 @@ import android.widget.TextView
 import com.example.latber.DETAIL_ITEM
 import com.example.latber.R
 import com.example.latber.activities.beli
-import com.example.latber.activities.Market_Item
+import com.example.latber.data.Market_Item
+
 
 class Market_Items_Adapter(var context: Context, var arrayList:ArrayList<Market_Item>): BaseAdapter() {
     override fun getItem(position: Int): Any {

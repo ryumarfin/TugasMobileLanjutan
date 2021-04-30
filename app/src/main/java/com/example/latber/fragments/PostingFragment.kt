@@ -19,10 +19,10 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.fragment.app.Fragment
+import com.example.latber.Interface.InterfaceData
 import com.example.latber.R
 import com.example.latber.REQUEST_CAMERA
 import com.example.latber.REQUEST_TAKEPICTURE
-import com.example.latber.RESULT_CAMERA
 
 
 lateinit var imageView: ImageView

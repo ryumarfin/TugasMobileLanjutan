@@ -1,4 +1,4 @@
-package com.example.latber.fragments
+package com.example.latber.Interface
 
 import android.os.Parcelable
 import android.widget.ImageView
