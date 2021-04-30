@@ -82,4 +82,7 @@ dependencies {
     def nav_version = "2.3.5"
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
 
+    //Mockito
+    def mockito_version = "3.3.0"
+    testImplementation "org.mockito:mockito-inline:$mockito_version"
 }
