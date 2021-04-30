@@ -189,8 +189,15 @@ class PanggilbensinFragment : Fragment() {
             imageView.setImageURI(imageUri)
         }
         else if(resultCode == RESULT_OK && requestCode == REQUEST_TAKEPICTURE){
-            var tumbnail = data?.extras?.get("data")
-            imageView.setImageBitmap(tumbnail as Bitmap)
+            data?.extras.let{extras->
+                if(extras == null|| !extras.containsKey("data")) {
+                    return
+                }
+                val imageBitmap = extras["data"] as Bitmap?
+                imageView.setImageBitmap(imageBitmap)
+            }
+//            var tumbnail = data?.extras?.get("data")
+//            imageView.setImageBitmap(tumbnail as Bitmap)
         }
     }
 
