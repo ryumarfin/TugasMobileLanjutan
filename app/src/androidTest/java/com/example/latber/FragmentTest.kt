@@ -25,11 +25,9 @@ class FragmentTest {
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun FragmentNav() {
+    fun test_FragmentNav() {
         //melakukan action click pada btn_login
         onView(withId(R.id.btn_login)).perform(click())
-
-
         //mengecek apakah tampilan yang muncul sesuai dengan yg diharapkan (sesuai dgn menuLayout)
         onView(withId(R.id.menuLayout)).check(matches(isDisplayed()))
         //melakukan action click pada item gridview yg ke-3
