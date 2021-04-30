@@ -2,8 +2,8 @@ package com.example.latber.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import com.example.latber.Interface.InterfaceData
 import com.example.latber.R
 import com.example.latber.fragments.*
 import kotlinx.android.synthetic.main.activity_menu.*

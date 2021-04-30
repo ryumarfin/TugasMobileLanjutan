@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.GridView
 import com.example.latber.adapters.Market_Items_Adapter
 import com.example.latber.R
-import com.example.latber.activities.Market_Item
+import com.example.latber.data.Market_Item
 
 
 class SparepartListFragment : Fragment() {

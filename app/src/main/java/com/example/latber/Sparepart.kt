@@ -3,7 +3,7 @@ package com.example.latber
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.latber.adapters.Market_Items_Adapter
-import com.example.latber.activities.Market_Item
+import com.example.latber.data.Market_Item
 
 class Sparepart : AppCompatActivity() {
 //    , AdapterView.OnItemClickListener
