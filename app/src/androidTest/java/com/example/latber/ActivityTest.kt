@@ -25,16 +25,12 @@ class ActivityTest{
 
     @Test
     fun test_isActivityInView() {
-        //Menjalakan MAinActivity
-//        val activityScenario = ActivityScenario.launch(MainActivity::class.java)
         //mengecek apakah tampilan MainActivity sesuai dengan yang diinginkan (sesuai dengan loginLayout)
         onView(withId(R.id.loginLayout)).check(matches(isDisplayed()))
     }
 
     @Test
     fun test_navToRegisterActivity() {
-        //menjalankan MainActivity
-//        val activityScenario = ActivityScenario.launch(MainActivity::class.java)
         //melakukan action click pada btn_register
         onView(withId(R.id.btn_register)).perform(click())
         //mengecek apakah tampilan yang muncul sesuai dengan yg diharapkan (sesuai dgn registerLayout)
@@ -43,8 +39,6 @@ class ActivityTest{
 
     @Test
     fun test_backPressToLoginActivity() {
-        //menjalankan MainActivity
-//        val activityScenario = ActivityScenario.launch(MainActivity::class.java)
         //melakukan action click pada btn_register
         onView(withId(R.id.btn_register)).perform(click())
         //mengecek apakah tampilan yang muncul sesuai dengan yg diharapkan (sesuai dgn registerLayout)
@@ -89,21 +83,14 @@ class ActivityTest{
         onView(withId(R.id.detailBarangPost)).check(matches(withText("blackscreen")))
     }
 
-
-/*    @Test
+    @Test
     fun test_metodePembayaran() {
         onView(withId(R.id.btn_login)).perform(click())
-        *//*Espresso.onData(AllOf.allOf()).inAdapterView(withId(R.id.myGridView)).atPosition(2).perform(click())*//*
+        Espresso.onData(AllOf.allOf()).inAdapterView(withId(R.id.myGridView)).atPosition(2).perform(click())
         onView(withId(R.id.tv2)).perform(click())
         onView(withId(R.id.btnBayar)).perform(click())
 
-    }*/
-
-
-
-
-
-
+    }
 }
 
 
