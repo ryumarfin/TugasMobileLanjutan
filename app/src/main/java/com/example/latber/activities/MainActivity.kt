@@ -1,18 +1,20 @@
 package com.example.latber.activities
 
-import android.annotation.SuppressLint
-import android.app.AlarmManager
-import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.latber.R
 import com.example.latber.Register
 import com.example.latber.airPlaneReceiver
+import com.example.latber.sharePreferences.SharePrefHelper
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
+import java.io.File
+
+private val PrefFileName = "MYFILEPREF01"
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +28,27 @@ class MainActivity : AppCompatActivity() {
         filter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
         registerReceiver(AirplaneReceiver, filter)
 
+//        RememberMe.isChecked = true
+
+        val f = File("/data/data/com.example.latber/shared_prefs/"+PrefFileName+".xml")
+        if (f.exists()) {
+            Log.d("TAG", PrefFileName + " exist")
+
+            //inisialisasi
+            var mySharedHelper = SharePrefHelper(this, PrefFileName)
+            var email = mySharedHelper.email
+            var pass = mySharedHelper.pass
+
+            //cek apakah ada data yg tersimpan
+            if (email != "" && pass != "" ){
+                //membaca atau mengambil data dari SharePreferences
+                et_email.setText(email)
+                et_password.setText(pass)
+            }
+        }
+        else
+            Log.d("TAG", PrefFileName + " no exist")
+
 
     }
 
@@ -37,6 +60,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun toSparepartPage(view: View) {
+        if(RememberMe.isChecked()){
+            var mySharedHelper = SharePrefHelper(this, PrefFileName)
+            //simpan dan panggil SharePrefHelper
+            //menyimpan email dan pass ke shareprefhelper
+            mySharedHelper.email = et_email.text.toString()
+            mySharedHelper.pass = et_password.text.toString()
+        }
+
         var intentSparePart = Intent(this, menu::class.java)
         startActivity(intentSparePart)
         finish()
