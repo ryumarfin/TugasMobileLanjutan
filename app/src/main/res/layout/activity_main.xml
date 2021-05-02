@@ -45,6 +45,14 @@
             android:drawablePadding="10dp"
             android:singleLine="true"
             android:password="true"/>
+        <CheckBox
+            android:id="@+id/RememberMe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="30px"
+            android:text="Remember Me"/>
+
         <Button
             android:id="@+id/btn_login"
             android:onClick="toSparepartPage"
@@ -57,14 +65,14 @@
             android:layout_gravity="center"
             android:textAllCaps="false"
             android:layout_margin="10dp"/>
-        <TextView
+       <!-- <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="OR"
             android:textColor="@color/MoLineMerah"
             android:textSize="70px"
-            android:layout_gravity="center"/>
-        <Button
+            android:layout_gravity="center"/>-->
+        <!--<Button
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="Continue with google"
@@ -75,7 +83,7 @@
             app:strokeColor="@color/MoLineMerah"
             app:strokeWidth="3px"
             app:cornerRadius="25dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"/>-->
         <Button
             android:id="@+id/btn_register"
             android:onClick="toRegisterPage"

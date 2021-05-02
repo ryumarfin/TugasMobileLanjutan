@@ -20,7 +20,7 @@ import com.example.latber.jobScheduler.QuotesScheduler
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class ProfileFragment : Fragment() {
-    //definisi JobID
+    /*//definisi JobID
     val JobId = 18000
     //membuat recevier untuk menangkap data yang dibroadcast/dikirim dari job scheduler
     private val QuotesReceiver = object : BroadcastReceiver() {
@@ -31,7 +31,7 @@ class ProfileFragment : Fragment() {
             //tampilkan data yang ditangkap tadi ke dalam view/xml
             requireView().quotes.text = data?.text + "\n-" +  data?.author
         }
-    }
+    }*/
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,15 +45,15 @@ class ProfileFragment : Fragment() {
 //            activity?.onBackPressed()
         }
 
-        val intentFilter = IntentFilter(QUOTES_SIGNAL)
+        /*val intentFilter = IntentFilter(QUOTES_SIGNAL)
         //mendaftarkan receiver agar ProfileFragment dapat menangkap broadcast
         requireActivity().registerReceiver(QuotesReceiver,intentFilter)
         //panggil fungsi startMyJob untuk menjalankan job
-        startMyJob()
+        startMyJob()*/
         return objView
     }
 
-    override fun onDestroy() {
+    /*override fun onDestroy() {
         super.onDestroy()
         //menghentikan job
         cancelMyJob()
@@ -78,6 +78,6 @@ class ProfileFragment : Fragment() {
         var JobQoutes = activity?.getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
         //menghentikan job schedulernya dengan ID JobId
         JobQoutes.cancel(JobId)
-    }
+    }*/
 
 }
