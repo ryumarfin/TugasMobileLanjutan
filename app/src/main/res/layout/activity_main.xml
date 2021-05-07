@@ -55,7 +55,7 @@
 
         <Button
             android:id="@+id/btn_login"
-            android:onClick="toSparepartPage"
+            android:onClick="toMarketPage"
             android:layout_width="150dp"
             android:layout_height="45dp"
             android:text="Login"
