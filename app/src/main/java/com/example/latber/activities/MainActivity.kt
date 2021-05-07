@@ -31,11 +31,13 @@ class MainActivity : AppCompatActivity() {
 //        RememberMe.isChecked = true
 
         val f = File("/data/data/com.example.latber/shared_prefs/"+PrefFileName+".xml")
+        //cek apakah file sharedpref exist
         if (f.exists()) {
             Log.d("TAG", PrefFileName + " exist")
 
             //inisialisasi
             var mySharedHelper = SharePrefHelper(this, PrefFileName)
+            //mengambil data dari file sharedpref
             var email = mySharedHelper.email
             var pass = mySharedHelper.pass
 
@@ -46,10 +48,9 @@ class MainActivity : AppCompatActivity() {
                 et_password.setText(pass)
             }
         }
+        //jika file tidak ditemukan
         else
             Log.d("TAG", PrefFileName + " no exist")
-
-
     }
 
 
@@ -59,10 +60,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun toSparepartPage(view: View) {
+    fun toMarketPage(view: View) {
+        //cek apakah rememberme di centang
         if(RememberMe.isChecked()){
-            var mySharedHelper = SharePrefHelper(this, PrefFileName)
             //simpan dan panggil SharePrefHelper
+            var mySharedHelper = SharePrefHelper(this, PrefFileName)
             //menyimpan email dan pass ke shareprefhelper
             mySharedHelper.email = et_email.text.toString()
             mySharedHelper.pass = et_password.text.toString()
