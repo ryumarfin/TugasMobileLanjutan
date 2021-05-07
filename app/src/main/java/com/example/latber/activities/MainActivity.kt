@@ -14,6 +14,7 @@ import com.example.latber.sharePreferences.SharePrefHelper
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 
+//nama file shared preference
 private val PrefFileName = "MYFILEPREF01"
 
 class MainActivity : AppCompatActivity() {

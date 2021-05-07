@@ -6,8 +6,9 @@ import com.example.latber.activities.KEY_EMAIL
 import com.example.latber.activities.KEY_PASS
 
 //tambah parameter context & fileName
-class SharePrefHelper(context: Context, fileName: String){
-    private var myPreferences : SharedPreferences
+class SharePrefHelper(context: Context, fileName: String) {
+    private var myPreferences: SharedPreferences
+
     //inisialisasi myPreferences
     init {
         myPreferences = context.getSharedPreferences(fileName, Context.MODE_PRIVATE)
@@ -16,7 +17,7 @@ class SharePrefHelper(context: Context, fileName: String){
 
     //  menambahkan fungsi .editMe ke dlm SharedPreferences
     //  yg memilik parameter sebuah fungsi yaitu "opertion" yg akan mengembalikan Unit
-    inline fun SharedPreferences.editMe(opertion:(SharedPreferences.Editor)->Unit){
+    inline fun SharedPreferences.editMe(opertion: (SharedPreferences.Editor) -> Unit) {
         // buat var utk menampung fungsi edit() dri SharePreferences
         val editMe = edit()
         // kirimkan editMe
@@ -24,25 +25,25 @@ class SharePrefHelper(context: Context, fileName: String){
         // jalankan
         editMe.apply()
     }
+
     //perintah dlm inline bersifat duplikasi sehingga dpt lbh menghemat penggunaan memory
-    var email : String?
+    var email: String?
         //Accessor
         get() = myPreferences.getString(KEY_EMAIL, "")
-
         //mutator
         set(value) {
             myPreferences.editMe {
                 it.putString(KEY_EMAIL, value)
             }
         }
-    var pass : String?
+    var pass: String?
         get() = myPreferences.getString(KEY_PASS, "")
         set(value) {
             myPreferences.editMe {
                 it.putString(KEY_PASS, value)
             }
         }
-
+}
 //    fun clearValues() {
 //        myPreferences.editMe {
 //            it.clear()
@@ -77,4 +78,3 @@ class SharePrefHelper(context: Context, fileName: String){
 //    fun clearValues(){
 //        myPreferences.edit().clear().apply()
 //    }
-}
