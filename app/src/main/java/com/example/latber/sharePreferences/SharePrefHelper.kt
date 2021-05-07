@@ -5,20 +5,14 @@ import android.content.SharedPreferences
 import com.example.latber.activities.KEY_EMAIL
 import com.example.latber.activities.KEY_PASS
 
-//1.2 tambah parameter context & fileName
+//tambah parameter context & fileName
 class SharePrefHelper(context: Context, fileName: String){
-
-    //1.4
     private var myPreferences : SharedPreferences
-    //1.5 inisialisasi myPreferences
+    //inisialisasi myPreferences
     init {
         myPreferences = context.getSharedPreferences(fileName, Context.MODE_PRIVATE)
-        //plih yg private
-        //yg artinya hanya aplikasi (MainAcitivty) ini yg dpt mengakses datanya
+        //plih yg private yg artinya hanya aplikasi ini yg dpt mengakses datanya
     }
-
-    //1.8 fun ini hanya khusus utk class ini
-    //     perintah dlm inline bersifat duplikasi sehingga dpt lbh menghemat penggunaan memory
 
     //  menambahkan fungsi .editMe ke dlm SharedPreferences
     //  yg memilik parameter sebuah fungsi yaitu "opertion" yg akan mengembalikan Unit
@@ -26,16 +20,16 @@ class SharePrefHelper(context: Context, fileName: String){
         // buat var utk menampung fungsi edit() dri SharePreferences
         val editMe = edit()
         // kirimkan editMe
-        opertion(editMe)    //isiny adlh putInt, putString, putBolean dll
+        opertion(editMe)    //isiny dpt berupa putInt, putString, putBolean dll
         // jalankan
         editMe.apply()
     }
-
-    //1.9
-    //inline function yang lebih menghemat penggunaan memory
+    //perintah dlm inline bersifat duplikasi sehingga dpt lbh menghemat penggunaan memory
     var email : String?
+        //Accessor
         get() = myPreferences.getString(KEY_EMAIL, "")
-        // panggil .editMe yg sudah dibuat sblmnya
+
+        //mutator
         set(value) {
             myPreferences.editMe {
                 it.putString(KEY_EMAIL, value)
@@ -48,6 +42,7 @@ class SharePrefHelper(context: Context, fileName: String){
                 it.putString(KEY_PASS, value)
             }
         }
+
 //    fun clearValues() {
 //        myPreferences.editMe {
 //            it.clear()
