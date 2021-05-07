@@ -36,7 +36,22 @@ class splashScreen : AppCompatActivity() {
             )
         }
 
+        //ketika soundID tidak = 0 berarti (soundID berisi file)
 
+
+
+        @Suppress("DEPRECATION")
+        Handler().postDelayed(
+            {
+                if(soundID!=0){
+                    //maka mainkan file tersebut dengan atur volume kanan kirinya, priority dan pengulangannya
+                    sp?.play(soundID,0.99f,.99f,1,0,.99f)
+                }
+                startActivity(Intent(this@splashScreen, MainActivity::class.java))
+                finish()
+            },
+            1000
+        )
 
        // val typeface: Typeface = Typeface.createFromAsset(assets,"Rolling-bold.ttf")
         // tv_judul.typeface = typeface
@@ -90,20 +105,6 @@ class splashScreen : AppCompatActivity() {
     //fungsi klik pada splash screen
     //dijalankan ketika layout splash screen di klik di sembarang tempat
     fun splashButton(view: View) {
-        //ketika soundID tidak = 0 berarti (soundID berisi file)
-        if(soundID!=0){
-            //maka mainkan file tersebut dengan atur volume kanan kirinya, priority dan pengulangannya
-            sp?.play(soundID,0.99f,.99f,1,0,.99f)
-        }
 
-
-        @Suppress("DEPRECATION")
-        Handler().postDelayed(
-            {
-                startActivity(Intent(this@splashScreen, MainActivity::class.java))
-                finish()
-            },
-            1000
-        )
     }
 }
