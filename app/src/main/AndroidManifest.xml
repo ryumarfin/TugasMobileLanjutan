@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.latber">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,11 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Latber">
+
+
         <receiver
             android:name=".MyAlarmManager"
             android:enabled="true"
-            android:exported="true"></receiver>
-        <!-- register QouteScheduler sebagai service -->
+            android:exported="true" /> <!-- register QouteScheduler sebagai service -->
         <service
             android:name=".jobScheduler.QuotesScheduler"
             android:enabled="true"
@@ -44,6 +46,7 @@
             android:name=".activities.menu"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:parentActivityName=".Register">
+
             <!-- android:theme="@style/NoAction" -->
         </activity>
         <activity
@@ -51,6 +54,10 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="Beli Langsung"
             android:parentActivityName=".Sparepart" />
+
+
+
+
         <activity
             android:name=".Sparepart"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -63,10 +70,16 @@
         <activity
             android:name=".activities.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden">
+
+        </activity>
+        <activity android:name=".splashScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoAction">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
     </application>
