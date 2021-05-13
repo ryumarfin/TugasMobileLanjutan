@@ -6,7 +6,7 @@ plugins {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.example.latber"
@@ -85,4 +85,8 @@ dependencies {
     //Mockito
     def mockito_version = "3.3.0"
     testImplementation "org.mockito:mockito-inline:$mockito_version"
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
 }

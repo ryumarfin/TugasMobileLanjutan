@@ -31,24 +31,24 @@ class SparepartListFragment : Fragment() {
         val sparePartGridView = view.findViewById<GridView>(R.id.myGridView)
 
 
-        var arrayList: ArrayList<Market_Item> = ArrayList()
-
-        arrayList.add(Market_Item(R.drawable.pic1, "PS5", 1000000))
-        arrayList.add(
-            Market_Item(
-                    R.drawable.pic2,
-                "Pleys Tesien Lima",
-                1000000
-            )
-        )
-        arrayList.add(Market_Item(R.drawable.pic1, "Laptop", 3000000))
-        arrayList.add(Market_Item(R.drawable.pic2, "Mouse Gaming", 100000))
-        arrayList.add(Market_Item(R.drawable.pic4, "Keyboard", 150000))
-        arrayList.add(Market_Item(R.drawable.pic3, "Headset", 15000))
-
-
-        val adapter = Market_Items_Adapter(requireContext(),arrayList)
-
-        sparePartGridView.adapter = adapter
+//        var arrayList: ArrayList<Market_Item> = ArrayList()
+//
+//        arrayList.add(Market_Item(R.drawable.pic1, "PS5", 1000000))
+//        arrayList.add(
+//            Market_Item(
+//                    R.drawable.pic2,
+//                "Pleys Tesien Lima",
+//                1000000
+//            )
+//        )
+//        arrayList.add(Market_Item(R.drawable.pic1, "Laptop", 3000000))
+//        arrayList.add(Market_Item(R.drawable.pic2, "Mouse Gaming", 100000))
+//        arrayList.add(Market_Item(R.drawable.pic4, "Keyboard", 150000))
+//        arrayList.add(Market_Item(R.drawable.pic3, "Headset", 15000))
+//
+//
+//        val adapter = Market_Items_Adapter(requireContext(),arrayList)
+//
+//        sparePartGridView.adapter = adapter
     }
 }

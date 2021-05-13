@@ -1,8 +1,12 @@
 package com.example.latber.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.fragment.app.Fragment
+import com.example.latber.FavoritePhotos
 import com.example.latber.Interface.InterfaceData
 import com.example.latber.R
 import com.example.latber.fragments.*
@@ -15,6 +19,23 @@ class menu : AppCompatActivity(), InterfaceData {
     private val postSuksesFragment = PanggilmontirFragment()
     private val historyFragment = HistoryFragment()
     private val profileFragment = ProfileFragment()
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        var inflater = menuInflater
+        inflater.inflate(R.menu.menu_overflow,menu)
+
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.favorite -> {
+                val intent = Intent(this, FavoritePhotos::class.java)
+                startActivity(intent)
+            }
+        }
+        return true
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

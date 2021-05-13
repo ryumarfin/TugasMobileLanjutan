@@ -7,7 +7,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 //model MVP
  data class Market_Item (
-    var imgs:Int,
+    var imgs : String,
     var detail : String,
     var price : Int
     ): Parcelable

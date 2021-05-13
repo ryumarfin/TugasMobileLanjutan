@@ -8,6 +8,9 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.model.GlideUrl
+import com.bumptech.glide.load.model.LazyHeaders
 import com.example.latber.DETAIL_ITEM
 import com.example.latber.R
 import com.example.latber.activities.beli
@@ -36,7 +39,13 @@ class Market_Items_Adapter(var context: Context, var arrayList:ArrayList<Market_
 
         var sparepartItem : Market_Item = arrayList.get(position)
 
-        imgs.setImageResource(sparepartItem.imgs!!)
+
+//        val urlNew = GlideUrl(
+//            sparepartItem.imgs!!, LazyHeaders.Builder()
+//                .addHeader("User-Agent", "your-user-agent")
+//                .build()
+//        )
+        Glide.with(context).load(sparepartItem.imgs!!).into(imgs)
         details.text = sparepartItem.detail
         price.text = sparepartItem.price.toString()
 

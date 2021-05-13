@@ -15,3 +15,9 @@ const val RESULT_CAMERA = 125
 const val QUOTES_DATA = "quotes_data"
 
 const val QUOTES_SIGNAL = "quotes_signal"
+
+
+const val DOWNLOAD_TO_INTERNAL_JOB_ID = 23568
+
+
+const val FAVORITE_IMAGE_URL = "FAVORITE_IMAGE_URL"
