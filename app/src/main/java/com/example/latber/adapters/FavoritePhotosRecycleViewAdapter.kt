@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.latber.R
 import kotlinx.android.synthetic.main.favorite_photo_recycleview_item.view.*
 
+//disini ada changes
 class FavoritePhotosRecycleViewAdapter(val photos: List<String>) : RecyclerView.Adapter<FavoritePhotoHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoritePhotoHolder {
         return FavoritePhotoHolder(LayoutInflater.from(parent.context).inflate(R.layout.favorite_photo_recycleview_item,parent,false))

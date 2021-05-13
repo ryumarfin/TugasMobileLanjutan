@@ -20,6 +20,7 @@ class menu : AppCompatActivity(), InterfaceData {
     private val historyFragment = HistoryFragment()
     private val profileFragment = ProfileFragment()
 
+    //disini ada changes
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         var inflater = menuInflater
         inflater.inflate(R.menu.menu_overflow,menu)

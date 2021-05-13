@@ -52,6 +52,7 @@ class beli : AppCompatActivity() {
             Toast.makeText(this, "Reminder telah dibuat", Toast.LENGTH_SHORT).show()
         }
 
+        //disini ada changes
         //save to internal storage
         save_to_internal.setOnClickListener {
             val SaveInternalServiceIntent = Intent(this,InternalStorageDownloadService::class.java)

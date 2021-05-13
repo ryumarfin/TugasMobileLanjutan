@@ -17,6 +17,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.lang.ref.WeakReference
 
+//disini ada changes
 class InternalStorageDownloadService : JobIntentService() {
 
     private var mContext: WeakReference<Context> = WeakReference(this)

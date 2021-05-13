@@ -9,6 +9,7 @@ import com.example.latber.adapters.FavoritePhotosRecycleViewAdapter
 import kotlinx.android.synthetic.main.activity_favorite_photos.*
 import java.io.File
 
+//disini ada chnages
 class FavoritePhotos : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
