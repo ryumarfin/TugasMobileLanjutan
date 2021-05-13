@@ -58,6 +58,10 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="Beli Langsung"
             android:parentActivityName=".Sparepart" />
+
+
+
+
         <activity
             android:name=".Sparepart"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -78,6 +82,7 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
     </application>
