@@ -55,6 +55,8 @@ class beli : AppCompatActivity() {
         //disini ada changes
         //save to internal storage
         save_to_internal.setOnClickListener {
+            //mulai JobIntentService "InternalStorageDownloadService" dengan membentuk Intent dan
+            //kemudian daftarkan InternalStorageDownloadService pada antrian menggunakan enqueueWork() untuk memulainya
             val SaveInternalServiceIntent = Intent(this,InternalStorageDownloadService::class.java)
             SaveInternalServiceIntent.putExtra(FAVORITE_IMAGE_URL,item!!.imgs)
 

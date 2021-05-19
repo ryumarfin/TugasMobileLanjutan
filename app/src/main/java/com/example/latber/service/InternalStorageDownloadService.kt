@@ -29,8 +29,10 @@ class InternalStorageDownloadService : JobIntentService() {
         })
     }
 
+    //proses menyimpan gambar akan dijalankan secara async
     override fun onHandleWork(intent: Intent) {
         showToast("Saving Image To Favorite!")
+        //tampung url gambar ke var url
         val url = intent.getStringExtra(FAVORITE_IMAGE_URL)
 
         mContext.get()?.let {
@@ -39,15 +41,20 @@ class InternalStorageDownloadService : JobIntentService() {
 
             try {
                 var file = File(it.filesDir, "Photos")
+                //cek apakah file tersedia
                 if (!file.exists()) {
                     file.mkdir()
 
                 }
+                //file akan diberikan nama unik secara acak
                 file = File(file, "${java.util.UUID.randomUUID()}.jpg")
+                //menuliskan file ke internal storage dengan menggunakan FileOutputStream
                 val outStream = FileOutputStream(file)
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream)
 
+                //Mengosongkan outStream dan memaksa setiap byte keluaran yang di-buffer untuk tulis.
                 outStream.flush()
+                //menutup outStream dan melepaskan semua resources sistem.
                 outStream.close()
 
             } catch (e: Exception) {
@@ -63,10 +70,9 @@ class InternalStorageDownloadService : JobIntentService() {
     }
 
     companion object{
+        //daftaran antrian pekerjaan baru untuk diproses
         fun enqueueWork(context: Context, intent: Intent){
             enqueueWork(context, InternalStorageDownloadService::class.java, DOWNLOAD_TO_INTERNAL_JOB_ID,intent)
         }
     }
-
-
 }
