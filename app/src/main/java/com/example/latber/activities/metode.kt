@@ -26,32 +26,34 @@ class metode : AppCompatActivity() {
         val intent = Intent(this, menu::class.java)
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
         btnBayar1.setOnClickListener{
-            //Membuat builder untuk membentuk notification
-            val builder = NotificationCompat.Builder(this, notificationApp.CHANNEL_1)
-                    .setSmallIcon(R.drawable.ic_baseline_done_24)
-                    .setContentTitle("Cashback 10%")
-                    .setContentText("Cashback telah ditambahkan ke saldo anda")
-                    .setPriority(NotificationCompat.PRIORITY_HIGH)
-                    .setCategory(NotificationCompat.CATEGORY_PROMO)
-                    .setContentIntent(pendingIntent)
-                    .setAutoCancel(true)
-
-            //Penggunaan jika membayar menggunakan saldo maka akan diberikan notifikasi cashback
+//            //Membuat builder untuk membentuk notification
+//            val builder = NotificationCompat.Builder(this, notificationApp.CHANNEL_1)
+//                    .setSmallIcon(R.drawable.ic_baseline_done_24)
+//                    .setContentTitle("Cashback 10%")
+//                    .setContentText("Cashback telah ditambahkan ke saldo anda")
+//                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+//                    .setCategory(NotificationCompat.CATEGORY_PROMO)
+//                    .setContentIntent(pendingIntent)
+//                    .setAutoCancel(true)
+//
+//            //Penggunaan jika membayar menggunakan saldo maka akan diberikan notifikasi cashback
+//            var intentReplay = Intent (this, beli::class.java)
+//            if (cod.isChecked){
+//                startActivity(intentReplay)
+//                finish()
+//            }
+//            else if (saldo.isChecked){
+//                startActivity(intentReplay)
+//                val notification = builder.build()
+//                notificationManager.notify(1, notification)
+//                finish()
+//            }
+//
+//            else
+//                Toast.makeText(this, "Pilih metode pembayaran", Toast.LENGTH_SHORT).show()
             var intentReplay = Intent (this, done::class.java)
-            if (cod.isChecked){
-                startActivity(intentReplay)
-                finish()
-            }
-            else if (saldo.isChecked){
-                startActivity(intentReplay)
-                val notification = builder.build()
-                notificationManager.notify(1, notification)
-                finish()
-            }
-
-            else
-                Toast.makeText(this, "Pilih metode pembayaran", Toast.LENGTH_SHORT).show()
-
+            startActivity(intentReplay)
+            finish()
         }
     }
 }

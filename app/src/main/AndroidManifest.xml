@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Latber">
-        <activity android:name=".FavoritePhotos"></activity>
+
 
         <receiver
             android:name=".MyAlarmManager"
@@ -28,10 +28,6 @@
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
         <service android:name=".MyIntentService" />
-        <service
-            android:name=".service.InternalStorageDownloadService"
-            android:exported="true"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <receiver
             android:name=".airPlaneReceiver"
@@ -73,9 +69,10 @@
             android:parentActivityName=".activities.MainActivity" />
         <activity
             android:name=".activities.MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"></activity>
-        <activity
-            android:name=".splashScreen"
+            android:configChanges="orientation|screenSize|keyboardHidden">
+
+        </activity>
+        <activity android:name=".splashScreen"
             android:screenOrientation="portrait"
             android:theme="@style/NoAction">
             <intent-filter>

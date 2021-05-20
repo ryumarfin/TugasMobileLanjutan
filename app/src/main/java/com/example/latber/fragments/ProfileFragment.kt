@@ -15,8 +15,10 @@ import androidx.core.content.ContextCompat.getSystemService
 import com.example.latber.QUOTES_DATA
 import com.example.latber.QUOTES_SIGNAL
 import com.example.latber.R
+import com.example.latber.activities.done
 import com.example.latber.data.Quotes
 import com.example.latber.jobScheduler.QuotesScheduler
+import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class ProfileFragment : Fragment() {
@@ -40,10 +42,15 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         var objView = inflater.inflate(R.layout.fragment_profile, container, false)
         var btn = objView.findViewById<Button>(R.id.btn_logout)
+
         btn.setOnClickListener {
             getActivity()?.finish()
 //            activity?.onBackPressed()
         }
+
+
+
+
 
         /*val intentFilter = IntentFilter(QUOTES_SIGNAL)
         //mendaftarkan receiver agar ProfileFragment dapat menangkap broadcast

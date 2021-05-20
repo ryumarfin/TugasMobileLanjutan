@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.latber.MusicRoom
 import com.example.latber.R
 import com.example.latber.Register
 import com.example.latber.airPlaneReceiver
@@ -74,6 +75,13 @@ class MainActivity : AppCompatActivity() {
         var intentSparePart = Intent(this, menu::class.java)
         startActivity(intentSparePart)
         finish()
+
+    }
+
+    fun toMusic(view: View) {
+        var intentRegister = Intent(this, MusicRoom::class.java)
+        startActivity(intentRegister)
+
     }
 
 

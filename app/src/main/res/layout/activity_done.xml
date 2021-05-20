@@ -8,8 +8,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/check"
-            android:layout_marginTop="150dp"/>
+            android:src="@drawable/check" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,6 +18,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sentuh untuk kembali ke menu utama"
-            android:layout_marginTop="100dp"
             android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rincian Pembelian"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_marginTop="60dp"/>
+        <TextView
+            android:id="@+id/rincian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kode Transaksi: 1234512345\nNama Barang: PS 5\nHarga: 10000000"
+            android:textAlignment="center"/>
+        <Button
+            android:id="@+id/saveRincian"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:text="PRINT"
+            android:textColor="@color/white"
+            android:layout_gravity="center"/>
+
 </LinearLayout>
