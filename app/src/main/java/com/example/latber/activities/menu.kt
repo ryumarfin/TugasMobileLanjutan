@@ -30,6 +30,8 @@ class menu : AppCompatActivity(), InterfaceData {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
+            //ketika menu favorite dipilih, maka akan memanggil intent untuk menampilkan
+            // gambar favorite yang ada di internal storage.
             R.id.favorite -> {
                 val intent = Intent(this, FavoritePhotos::class.java)
                 startActivity(intent)
