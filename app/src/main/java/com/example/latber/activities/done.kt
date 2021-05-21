@@ -33,9 +33,6 @@ class done : AppCompatActivity() {
                 writeFileExternal()
             }
         }
-        tampilkan.setOnClickListener{
-            readFileExternal()
-        }
 
     }
 
@@ -49,15 +46,6 @@ class done : AppCompatActivity() {
         File(myDir,"${sdf}.txt") .apply {
             writeText(rincian.text.toString())
         }
-    }
-    private fun readFileExternal() {
-        val letovi: MutableList<String> = ArrayList()
-
-        File(getExternalFilesDir( "Private")?.toURI()).walkBottomUp().forEach {
-            letovi.add(it.toString() + "\n")
-        }
-        val arrayAdapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,letovi)
-        showlist.adapter = arrayAdapter
     }
 
     fun isExternalStorageReadable(): Boolean{
