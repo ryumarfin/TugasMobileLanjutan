@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.latber.*
@@ -28,12 +29,12 @@ class done : AppCompatActivity() {
         setContentView(R.layout.activity_done)
 
         saveRincian.setOnClickListener{
-            val currentDateTime = LocalDateTime.now()
-            val sdf = currentDateTime.format(DateTimeFormatter.ISO_DATE_TIME)
             if(isExternalStorageReadable()){
                 writeFileExternal()
-                Toast.makeText(this, "${sdf}", Toast.LENGTH_SHORT).show()
             }
+        }
+        tampilkan.setOnClickListener{
+            readFileExternal()
         }
 
     }
@@ -41,7 +42,7 @@ class done : AppCompatActivity() {
     private fun writeFileExternal() {
         val currentDateTime = LocalDateTime.now()
         val sdf = currentDateTime.format(DateTimeFormatter.ISO_DATE_TIME)
-        var myDir = File(getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)?.toURI())
+        var myDir = File(getExternalFilesDir( "Private")?.toURI())
         if(!myDir.exists()){
             myDir.mkdir()
         }
@@ -49,14 +50,15 @@ class done : AppCompatActivity() {
             writeText(rincian.text.toString())
         }
     }
-/*    private fun readFileExternal() {
-        var myDir = File(getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)?.toURI())
-        var readFile = ""
-        File(myDir,edit_text3.text.toString()).forEachLine(Charsets.UTF_8) {
-            readFile += it
+    private fun readFileExternal() {
+        val letovi: MutableList<String> = ArrayList()
+
+        File(getExternalFilesDir( "Private")?.toURI()).walkBottomUp().forEach {
+            letovi.add(it.toString() + "\n")
         }
-        edit_text1.setText(readFile)
-    }*/
+        val arrayAdapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,letovi)
+        showlist.adapter = arrayAdapter
+    }
 
     fun isExternalStorageReadable(): Boolean{
         if(ContextCompat.checkSelfPermission(
@@ -90,6 +92,7 @@ class done : AppCompatActivity() {
             }
         }
     }
+
 
     fun toSparepartPage(view: View) {
         finish()
