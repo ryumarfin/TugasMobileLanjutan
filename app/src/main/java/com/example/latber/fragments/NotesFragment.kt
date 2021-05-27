@@ -66,12 +66,41 @@ class HistoryFragment : Fragment() {
             var judul = note_judul.text.toString()
             var isi = note_isi.text.toString()
 
-            //cek apakah judul pada edittext = item yg dipilih pada spinner
-            if(judul != spinner.selectedItem.toString()){
-                //jika ya maka kita lanjutkan p
-                //buat variable utk menampung data baru
-                val noteTemp = Notes()
-                //cek apakah edittext judul kosong tau tidak
+            //buat variable utk menampung data baru
+            val noteTemp = Notes()
+
+            if(spinner.selectedItem != null){
+                //cek apakah judul pada edittext = item yg dipilih pada spinner
+                if(judul != spinner.selectedItem.toString()){
+                    //cek apakah edittext judul kosong atau tidak
+                    if(judul.trim() != ""){
+                        //jka edittext judul tidak kosong, maka simpan data
+                        noteTemp.judul = note_judul.text.toString()
+                        noteTemp.konten = note_isi.text.toString()
+
+                        //kirimkan data yang akan diinsert
+                        var result = mydbHelper?.tambahNote(noteTemp)
+                        //cek apakah proses insert berhasil dilakukan atau tidak
+                        //jika proses gagal, insert akan mengembalikan nilai -1L
+                        if(result !=- 1L){
+                            Toast.makeText(context, "Note berhail di simpan", Toast.LENGTH_SHORT).show()
+                        }
+                        else{
+                            Toast.makeText(context, "Note gagal di simpan", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    else
+                        Toast.makeText(context, "Judul tidak boleh kosong", Toast.LENGTH_SHORT).show()
+                }
+                //jika judul pada edittext == item yg dipilih pada spinner, maka kita akan melakukan perubahan
+                //data pada database
+                else{
+                    //mengubah atau mengupdate isi konten notes berdasarkan judul
+                    mydbHelper?.ubahKonten(judul, isi)
+                    Toast.makeText(context, "Konten berhasil di update", Toast.LENGTH_SHORT).show()
+                }
+            }
+            else{
                 if(judul.trim() != ""){
                     //jka edittext judul tidak kosong, maka simpan data
                     noteTemp.judul = note_judul.text.toString()
@@ -88,14 +117,6 @@ class HistoryFragment : Fragment() {
                         Toast.makeText(context, "Note gagal di simpan", Toast.LENGTH_SHORT).show()
                     }
                 }
-                else
-                    Toast.makeText(context, "Judul tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }
-            //jika judul pada edittext == item yg dipilih pada spinner, maka kita akan melakukan perubahan
-            //data pada database
-            else{
-                //mengubah atau mengupdate isi konten notes berdasarkan judul
-                mydbHelper?.ubahKonten(judul, isi)
             }
 
             onUpgradeAdapter()
