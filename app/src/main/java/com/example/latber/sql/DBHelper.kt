@@ -55,25 +55,79 @@ class DBHelper(context : Context) : SQLiteOpenHelper(
         return success
     }
 
-    fun tampilkanData():List<String>{
+    //membaca data Judul dari database
+    fun tampilkanJudul():List<String>{
+        //buat sebuah arrayList untuk menampung listjudul
         val listJudul = ArrayList<String>()
-        val judul = "SELECT ${NoteDB.noteTable.COLUMN_JUDUL} FROM ${NoteDB.noteTable.TABLE_NOTE}"
+        //buat query untuk membaca data judul pada database
+        val sql = "SELECT ${NoteDB.noteTable.COLUMN_JUDUL} FROM ${NoteDB.noteTable.TABLE_NOTE}"
+
+        //gunakan readableDatabse untuk melakukan proses baca database
+        val db = this.readableDatabase
+
+        //inisialisasi cursor untuk membantu dalam membaca data dari database
+        var cursor : Cursor?= null
+        try{
+            //cursor akan membaca dan menyimpan data judul dlam bentuk tabel
+            cursor = db.rawQuery(sql, null)
+        }catch (e: SQLException){
+            return ArrayList()
+        }
+        //buat variable untuk menampung judul
+        var judultemp = ""
+        //pastikan cursor berada pada posisi awal
+        if(cursor.moveToFirst()){
+            //lakukan proses pembacaan hngga cursor berada diposisi akhir
+            do{
+                //cursor akan membaca data judul per baris dan simpan ke var judultemp
+                judultemp = cursor.getString(cursor.getColumnIndex(NoteDB.noteTable.COLUMN_JUDUL))
+                //kemudian kita tambahkan atua masukkn ke dalam listJudul
+                listJudul.add(judultemp)
+            } while (cursor.moveToNext()) //geser cursor ke baris selanjutnya
+        }
+        return listJudul
+    }
+
+    //menampilkan seluruh data dan kembalikan dalam MutableList
+    fun tampilkanData():MutableList<Notes>{
+        val listNote = ArrayList<Notes>()
+        val sql = "SELECT * FROM ${NoteDB.noteTable.TABLE_NOTE}"
 
         val db = this.readableDatabase
 
         var cursor : Cursor?= null
         try{
-            cursor = db.rawQuery(judul, null)
+            cursor = db.rawQuery(sql, null)
         }catch (e: SQLException){
             return ArrayList()
         }
-        var judultemp = ""
+
         if(cursor.moveToFirst()){
             do{
-                judultemp = cursor.getString(cursor.getColumnIndex(NoteDB.noteTable.COLUMN_JUDUL))
-                listJudul.add(judultemp)
+                var cttn = Notes()
+                cttn.id = cursor.getInt(cursor.getColumnIndex(NoteDB.noteTable.COLUMN_ID))
+                cttn.judul = cursor.getString(cursor.getColumnIndex(NoteDB.noteTable.COLUMN_JUDUL))
+                cttn.konten = cursor.getString(cursor.getColumnIndex(NoteDB.noteTable.COLUMN_KONTEN))
+                listNote.add(cttn)
             } while (cursor.moveToNext())
         }
-        return listJudul
+        return listNote
+    }
+
+    fun hapusNote(judul : String){
+        val db = this.writableDatabase
+        val selection = "${NoteDB.noteTable.COLUMN_JUDUL} = ?"
+        db.delete(NoteDB.noteTable.TABLE_NOTE, selection, arrayOf(judul))
+    }
+
+    fun ubahKonten(judul: String, isi:String){
+
+        val db = this.writableDatabase
+
+        val contentValues = ContentValues()
+        contentValues.put(NoteDB.noteTable.COLUMN_KONTEN, isi)
+
+        val selection = "${NoteDB.noteTable.COLUMN_JUDUL} = ?"
+        db.update(NoteDB.noteTable.TABLE_NOTE, contentValues, selection, arrayOf(judul))
     }
 }

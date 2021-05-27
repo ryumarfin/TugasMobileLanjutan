@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/MoLineAbu"
-                android:padding="20dp"/>
+                android:padding="10dp"/>
 
             <EditText
                 android:id="@+id/note_judul"
@@ -62,14 +62,29 @@
                 android:id="@+id/note_simpan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
+                android:textSize="10dp"
                 android:text="Simpan" />
             <Button
                 android:id="@+id/note_hapus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:textSize="10dp"
                 android:text="Hapus" />
+            <Button
+                android:id="@+id/note_bersihkan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="10dp"
+                android:text="Bersih" />
+            <Button
+                android:id="@+id/note_buka"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="10dp"
+                android:text="Buka" />
         </LinearLayout>
 
     </LinearLayout>
