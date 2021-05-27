@@ -77,8 +77,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun toMusic(view: View) {
-        var intentRegister = Intent(this, MusicRoom::class.java)
-        startActivity(intentRegister)
+//        var intentRegister = Intent(this, MusicRoom::class.java)
+//        startActivity(intentRegister)
 
     }
 
