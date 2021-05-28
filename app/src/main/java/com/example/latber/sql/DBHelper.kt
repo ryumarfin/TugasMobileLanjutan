@@ -31,7 +31,9 @@ class DBHelper(context : Context) : SQLiteOpenHelper(
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        //untuk mengupdate, kita akan menghapus table terlebih dahulu
         db?.execSQL("DROP TABLE IF EXISTS ${NoteDB.noteTable.TABLE_NOTE}")
+        //kemudian panggil onCreate untuk membentuk table
         onCreate(db)
     }
 
@@ -88,45 +90,55 @@ class DBHelper(context : Context) : SQLiteOpenHelper(
         return listJudul
     }
 
-    //menampilkan seluruh data dan kembalikan dalam MutableList
+    //membaca seluruh data di table
     fun tampilkanData():MutableList<Notes>{
+        //buat sebuah arrayList untuk menampung seluruh data
         val listNote = ArrayList<Notes>()
+        //buat query untuk membaca seluruh data pada database
         val sql = "SELECT * FROM ${NoteDB.noteTable.TABLE_NOTE}"
 
+        //gunakan readableDatabse untuk melakukan proses baca database
         val db = this.readableDatabase
-
+        //inisialisasi cursor untuk membantu dalam membaca data dari database
         var cursor : Cursor?= null
         try{
+            //cursor akan membaca dan menyimpan data judul dlam bentuk tabel
             cursor = db.rawQuery(sql, null)
         }catch (e: SQLException){
             return ArrayList()
         }
-
+        //pastikan cursor berada pada posisi awal
         if(cursor.moveToFirst()){
+            //lakukan proses pembacaan hingga cursor berada diposisi akhir
             do{
+                //buat var penampung
                 var cttn = Notes()
+                //cursor akan membaca data per baris
                 cttn.id = cursor.getInt(cursor.getColumnIndex(NoteDB.noteTable.COLUMN_ID))
                 cttn.judul = cursor.getString(cursor.getColumnIndex(NoteDB.noteTable.COLUMN_JUDUL))
                 cttn.konten = cursor.getString(cursor.getColumnIndex(NoteDB.noteTable.COLUMN_KONTEN))
+                //kemudian kita tambahkan atua masukkn ke dalam listNote
                 listNote.add(cttn)
-            } while (cursor.moveToNext())
+            } while (cursor.moveToNext()) // geser cursor ke baris selanjutnya
         }
         return listNote
     }
 
+    //menghapus note
     fun hapusNote(judul : String){
         val db = this.writableDatabase
+        //tentukan baris yg akan dihapus dari table berdasarkan judul
         val selection = "${NoteDB.noteTable.COLUMN_JUDUL} = ?"
         db.delete(NoteDB.noteTable.TABLE_NOTE, selection, arrayOf(judul))
     }
 
+    //mengupdate isi konten
     fun ubahKonten(judul: String, isi:String){
-
         val db = this.writableDatabase
-
         val contentValues = ContentValues()
+        //kirimkan data baru yang ingin disimpan ke database
         contentValues.put(NoteDB.noteTable.COLUMN_KONTEN, isi)
-
+        //lalu update data tersebut pada baris yg dtentukan
         val selection = "${NoteDB.noteTable.COLUMN_JUDUL} = ?"
         db.update(NoteDB.noteTable.TABLE_NOTE, contentValues, selection, arrayOf(judul))
     }
