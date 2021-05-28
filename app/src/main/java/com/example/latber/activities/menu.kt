@@ -17,7 +17,7 @@ class menu : AppCompatActivity(), InterfaceData {
     private val sparepartFragment = SparepartFragment()
     private val panggilbensinFragment = PanggilbensinFragment()
     private val postSuksesFragment = PanggilmontirFragment()
-    private val historyFragment = HistoryFragment()
+    private val historyFragment = NotesFragment()
     private val profileFragment = ProfileFragment()
 
     //disini ada changes

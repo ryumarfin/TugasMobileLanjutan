@@ -30,7 +30,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [HistoryFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HistoryFragment : Fragment() {
+class NotesFragment : Fragment() {
 
     //inisialisasi DBHelper
     var mydbHelper : DBHelper ?= null
@@ -65,9 +65,6 @@ class HistoryFragment : Fragment() {
         btnSimpan.setOnClickListener{
             var judul = note_judul.text.toString()
             var isi = note_isi.text.toString()
-
-            //buat variable utk menampung data baru
-            val noteTemp = Notes()
 
             if(spinner.selectedItem != null){
                 //cek apakah judul pada edittext = item yg dipilih pada spinner
@@ -145,7 +142,6 @@ class HistoryFragment : Fragment() {
 
     private fun simpandata() {
         var judul = note_judul.text.toString()
-        var isi = note_isi.text.toString()
 
         //buat variable utk menampung data baru
         val noteTemp = Notes()
