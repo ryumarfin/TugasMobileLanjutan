@@ -5,8 +5,8 @@ import kotlinx.android.parcel.Parcelize
 
 //buat class parcelable
 @Parcelize
-class Notes : Parcelable {
-    var id : Int = 0
-    var judul : String = ""
-    var konten : String = ""
+data class Notes(
+    var id : Int = 0,
+    var judul : String = "",
+    var konten : String = ""):Parcelable{
 }

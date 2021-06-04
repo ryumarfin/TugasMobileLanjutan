@@ -1,17 +1,17 @@
 package com.example.latber.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
-import androidx.annotation.UiThread
 import androidx.fragment.app.Fragment
+import com.example.latber.FirstRunSharedPref
+import com.example.latber.PreloadActivity
 import com.example.latber.R
 import com.example.latber.data.Notes
 import com.example.latber.sql.DBHelper
@@ -34,6 +34,8 @@ class NotesFragment : Fragment() {
 
     //inisialisasi DBHelper
     var mydbHelper : DBHelper ?= null
+    //inisialisaasi Firstsahrepreferences
+    var myFirstRunSharedPref : FirstRunSharedPref?=null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +59,16 @@ class NotesFragment : Fragment() {
 
         //kirimkan context yg menandakan bahwa database diibentuk dari fragment ini
         mydbHelper = DBHelper(requireContext())
+
+        myFirstRunSharedPref = FirstRunSharedPref(requireContext())
+        mydbHelper?.hapusAll()
+        myFirstRunSharedPref?.firstRun = true
+
+        //jika aplikasi pertama kali dijalankan maka alihkan ke pre load activity
+        if (myFirstRunSharedPref!!.firstRun){
+            var secondIntent = Intent (requireContext(), PreloadActivity::class.java)
+            startActivity(secondIntent)
+        }
 
         //refresh tampilan spinner
         onUpgradeAdapter()
@@ -140,11 +152,16 @@ class NotesFragment : Fragment() {
         return objView
     }
 
+    override fun onResume() {
+        super.onResume()
+        onUpgradeAdapter()
+    }
+
     private fun simpandata() {
         var judul = note_judul.text.toString()
 
         //buat variable utk menampung data baru
-        val noteTemp = Notes()
+        val noteTemp = Notes(1, "judul", "judul")
         //cek apakah edittext judul kosong atau tidak
         if(judul.trim() != ""){
             //jka edittext judul tidak kosong, maka simpan data

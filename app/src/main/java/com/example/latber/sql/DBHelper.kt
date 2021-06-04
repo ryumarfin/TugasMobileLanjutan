@@ -112,7 +112,7 @@ class DBHelper(context : Context) : SQLiteOpenHelper(
             //lakukan proses pembacaan hingga cursor berada diposisi akhir
             do{
                 //buat var penampung
-                var cttn = Notes()
+                var cttn = Notes(1, "judul", "judul")
                 //cursor akan membaca data per baris
                 cttn.id = cursor.getInt(cursor.getColumnIndex(NoteDB.noteTable.COLUMN_ID))
                 cttn.judul = cursor.getString(cursor.getColumnIndex(NoteDB.noteTable.COLUMN_JUDUL))
@@ -132,6 +132,11 @@ class DBHelper(context : Context) : SQLiteOpenHelper(
         db.delete(NoteDB.noteTable.TABLE_NOTE, selection, arrayOf(judul))
     }
 
+    fun hapusAll(){
+        var db = this.writableDatabase
+        db.delete(NoteDB.noteTable.TABLE_NOTE,null,null)
+    }
+
     //mengupdate isi konten
     fun ubahKonten(judul: String, isi:String){
         val db = this.writableDatabase
@@ -141,5 +146,37 @@ class DBHelper(context : Context) : SQLiteOpenHelper(
         //lalu update data tersebut pada baris yg dtentukan
         val selection = "${NoteDB.noteTable.COLUMN_JUDUL} = ?"
         db.update(NoteDB.noteTable.TABLE_NOTE, contentValues, selection, arrayOf(judul))
+    }
+    //untuk memulai transaction
+    fun beginNoteTransaction(){
+        this.writableDatabase.beginTransaction()
+    }
+    // untuk mengetahui bahwa transaction sukses
+    fun successNoteTransaction(){
+        this.writableDatabase.setTransactionSuccessful()
+    }
+
+    //untuk mengakhiri transaction
+    fun endNoteTransaction(){
+        this.writableDatabase.endTransaction()
+    }
+    //untuk melakukan tambah dengan optimasi query
+    fun tambahNoteTransaction(note: Notes){
+        var sqlString = "INSERT INTO ${NoteDB.noteTable.TABLE_NOTE}" +
+                "(${NoteDB.noteTable.COLUMN_ID}" +
+                ",${NoteDB.noteTable.COLUMN_JUDUL}" +
+                ",${NoteDB.noteTable.COLUMN_KONTEN}) VALUES (?,?,?) "
+
+        val myStatement = this.writableDatabase.compileStatement(sqlString)
+        //buat binding sebanyak data yang ingin dimasukkan
+        myStatement.bindLong(1,note.id.toLong())
+        myStatement.bindString(2,note.judul)
+        myStatement.bindString(3,note.konten)
+        //lakukan execute
+        myStatement.execute()
+        //hapus binding agar dapat diproses kembali
+        myStatement.clearBindings()
+
+
     }
 }

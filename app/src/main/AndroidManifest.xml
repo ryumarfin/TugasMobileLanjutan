@@ -16,7 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Latber">
-        <activity android:name=".FavoritePhotos"></activity>
+        <activity android:name=".PreloadActivity"></activity>
+        <activity android:name=".AlamatActivity" />
+        <activity android:name=".favorite_address" />
+        <activity android:name=".FavoritePhotos" />
 
         <receiver
             android:name=".MyAlarmManager"
@@ -58,10 +61,6 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="Beli Langsung"
             android:parentActivityName=".Sparepart" />
-
-
-
-
         <activity
             android:name=".Sparepart"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -74,24 +73,25 @@
         <activity
             android:name=".activities.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
         </activity>
         <activity
             android:name=".splashScreen"
             android:screenOrientation="portrait"
             android:theme="@style/NoAction">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
-<!--            </intent-filter>-->
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+
+
+            <!-- </intent-filter> -->
         </activity>
     </application>
 
