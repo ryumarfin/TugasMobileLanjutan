@@ -16,9 +16,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Latber">
-        <activity android:name=".PreloadActivity"></activity>
-        <activity android:name=".AlamatActivity" />
-        <activity android:name=".favorite_address" />
+        <receiver android:name=".widgets.QoutesWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/qoutes_widget_info" />
+        </receiver>
+
+        <activity android:name=".PreloadActivity" /> <!-- <activity android:name=".AlamatActivity" /> -->
+        <!-- <activity android:name=".favorite_address" /> -->
         <activity android:name=".FavoritePhotos" />
 
         <receiver

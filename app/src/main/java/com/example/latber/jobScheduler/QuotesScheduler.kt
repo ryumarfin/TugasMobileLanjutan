@@ -3,11 +3,14 @@ package com.example.latber.jobScheduler
 import android.app.job.JobParameters
 import android.app.job.JobScheduler
 import android.app.job.JobService
+import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import android.content.Intent
 import android.util.Log
 import com.example.latber.QUOTES_DATA
 import com.example.latber.QUOTES_SIGNAL
 import com.example.latber.data.Quotes
+import com.example.latber.widgets.QoutesWidget
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import cz.msebera.android.httpclient.Header

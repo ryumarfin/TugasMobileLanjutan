@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/MoLineAbu"
+    android:padding="@dimen/widget_margin"
+    android:theme="@style/ThemeOverlay.Latber.AppWidgetContainer"
+    android:id="@+id/quotes_widget_layout"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/quotesss"
+        android:textColor="@color/MoLinePutih"
+        android:background="@color/MoLineMerah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:text="Today Qoutes"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_margin="5dp">
+        <TextView
+            android:id="@+id/qoutes_text_Widget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="quotes here"/>
+        <TextView
+            android:id="@+id/qoutes_author_Widget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="author"
+            android:textSize="10dp"/>
+    </LinearLayout>
+
+</LinearLayout>

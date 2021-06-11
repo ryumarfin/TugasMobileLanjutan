@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialKeyguardLayout="@layout/qoutes_widget"
+    android:initialLayout="@layout/qoutes_widget"
+    android:minWidth="250dp"
+    android:minHeight="150dp"
+    android:previewImage="@drawable/quotes_widget"
+
+    android:updatePeriodMillis="86400000"
+    android:widgetCategory="home_screen"></appwidget-provider>
+
+<!--quotes akan diperbaharui setiap 24 jam-->
+<!--updatePeriodMillis:  24 hours = 24 jam * 60 menit * 60 detik * 1000 milidetik = 86400000 milidetik.-->
