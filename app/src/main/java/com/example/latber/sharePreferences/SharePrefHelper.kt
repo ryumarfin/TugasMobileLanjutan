@@ -43,6 +43,13 @@ class SharePrefHelper(context: Context, fileName: String) {
                 it.putString(KEY_PASS, value)
             }
         }
+    //shareprefdb
+    private val keyPref = "FIRST_RUN"
+    private var mySharePref : SharedPreferences =
+            context.getSharedPreferences("SharePrefFile", Context.MODE_PRIVATE)
+    var firstRun : Boolean
+        get() = mySharePref.getBoolean(keyPref, true)
+        set(value) { mySharePref.edit().putBoolean(keyPref,value).commit() }
 }
 //    fun clearValues() {
 //        myPreferences.editMe {

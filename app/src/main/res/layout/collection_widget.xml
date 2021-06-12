@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/MoLineAbu"
+    android:padding="@dimen/widget_margin"
+    android:theme="@style/ThemeOverlay.Latber.AppWidgetContainer"
+    android:id="@+id/quotes_widget_layout"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_margin="5dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/pic1"/>
+        <TextView
+            android:id="@+id/qoutes_text_Widget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Report bug with click this button"
+            android:textAlignment="center"/>
+        <Button
+            android:id="@+id/gotoweb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Give Feedback" />
+
+    </LinearLayout>
+
+</LinearLayout>
