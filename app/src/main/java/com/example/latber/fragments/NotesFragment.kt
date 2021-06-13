@@ -15,6 +15,9 @@ import com.example.latber.PreloadActivity
 import com.example.latber.R
 import com.example.latber.data.Notes
 import com.example.latber.sql.DBHelper
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.fragment_notes.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -62,7 +65,7 @@ class NotesFragment : Fragment() {
 
         myFirstRunSharedPref = FirstRunSharedPref(requireContext())
         mydbHelper?.hapusAll()
-        myFirstRunSharedPref?.firstRun = true
+//        myFirstRunSharedPref?.firstRun = true
 
         //jika aplikasi pertama kali dijalankan maka alihkan ke pre load activity
         if (myFirstRunSharedPref!!.firstRun){
@@ -152,6 +155,16 @@ class NotesFragment : Fragment() {
         return objView
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        //load Banner Ads
+        MobileAds.initialize(context) {}
+        adView.loadAd(AdRequest.Builder().build())
+        adView.adListener = object : AdListener() {}
+
+    }
+
     override fun onResume() {
         super.onResume()
         onUpgradeAdapter()
@@ -207,4 +220,6 @@ class NotesFragment : Fragment() {
         note_judul.text.clear()
         note_isi.text.clear()
     }
+
+
 }

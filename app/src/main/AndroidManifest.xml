@@ -20,6 +20,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Latber">
+
+<!--        Google AdMob -->
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2115297780237515~7386383199"/>
+
+
         <receiver android:name=".widgets.CollectionWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -116,13 +122,13 @@
             <!-- </intent-filter> -->
         </activity>
 
-        <provider
-            android:name=".provider.myContentProvider"
-            android:authorities="com.example.latber.provider.provider.myContentProvider"
-            android:enabled="true"
-            android:exported="true"
-            android:grantUriPermissions="true"
-            android:readPermission="com.example.latber.provider.READ_URI_DB" />
+<!--        <provider-->
+<!--            android:name=".provider.myContentProvider"-->
+<!--            android:authorities="com.example.latber.provider.provider.myContentProvider"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true"-->
+<!--            android:grantUriPermissions="true"-->
+<!--            android:readPermission="com.example.latber.provider.READ_URI_DB" />-->
     </application>
 
 </manifest>

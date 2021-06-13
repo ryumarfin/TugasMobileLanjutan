@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "343856665562",
+    "project_id": "marketplace-e0ecb",
+    "storage_bucket": "marketplace-e0ecb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:343856665562:android:a74309bbb2ff34f5f366e3",
+        "android_client_info": {
+          "package_name": "com.example.latber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "343856665562-6ld6tst8rg7gc23ui7d29nf3jr5hln09.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJhPbbYHUsD06hQTqsaqyvcScQvsbb53M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "343856665562-6ld6tst8rg7gc23ui7d29nf3jr5hln09.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

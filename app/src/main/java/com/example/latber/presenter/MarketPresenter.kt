@@ -15,7 +15,7 @@ class MarketPresenter(setView:MarketInterface) {
     //proses data
     fun ItemList(){
         //isi data
-        ItemsModel.add(Market_Item("https://img.cintamobil.com/2019/11/07/ZXn5Pos1/tertipu-beli-sparepart-mobil-4-9a07.jpg", "Aaaa", 1000000))
+        ItemsModel.add(Market_Item("https://asia.playstation.com/content/dam/pscom/hk/latest-news/2020/202009-ps5-news/ps5-prices.jpg", "Aaaa", 1000000))
         ItemsModel.add(Market_Item("https://jual-sparepart-motor.com/wp-content/uploads/2014/05/BEARING-LAHAR-1-260x280.jpg", "Bbbbb", 1000000))
         ItemsModel.add(Market_Item("https://momobil.id/news/wp-content/uploads/2018/12/mencari-toko-spare-part-mobil-terbaik-1024x576.jpg", "Ccccc", 3000000))
         ItemsModel.add(Market_Item("https://www.pandaindoteknik.co.id/wp-content/uploads/2019/06/Spare-Parts-Cover.jpg", "Dddddd", 100000))
