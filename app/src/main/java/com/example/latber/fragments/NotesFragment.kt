@@ -65,7 +65,7 @@ class NotesFragment : Fragment() {
 
         myFirstRunSharedPref = FirstRunSharedPref(requireContext())
         mydbHelper?.hapusAll()
-//        myFirstRunSharedPref?.firstRun = true
+        myFirstRunSharedPref?.firstRun = true
 
         //jika aplikasi pertama kali dijalankan maka alihkan ke pre load activity
         if (myFirstRunSharedPref!!.firstRun){

@@ -109,4 +109,7 @@ dependencies {
     //google firebase
     implementation platform('com.google.firebase:firebase-bom:28.1.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    //for interstitial ads
+    implementation 'com.google.android.gms:play-services-ads:20.2.0'
 }
