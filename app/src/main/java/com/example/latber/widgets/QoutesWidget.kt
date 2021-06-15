@@ -75,6 +75,7 @@ class QoutesWidget : AppWidgetProvider() {
                     //panggil untuk mengupdate tampilan widget
                     appWidgetManager.updateAppWidget(appWidgetId, views)
                 }
+                response.close()
             }
         })
     }
