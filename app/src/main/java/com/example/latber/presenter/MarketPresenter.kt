@@ -16,11 +16,11 @@ class MarketPresenter(setView:MarketInterface) {
     fun ItemList(){
         //isi data
         ItemsModel.add(Market_Item("https://asia.playstation.com/content/dam/pscom/hk/latest-news/2020/202009-ps5-news/ps5-prices.jpg", "Aaaa", 1000000))
-        ItemsModel.add(Market_Item("https://jual-sparepart-motor.com/wp-content/uploads/2014/05/BEARING-LAHAR-1-260x280.jpg", "Bbbbb", 1000000))
-        ItemsModel.add(Market_Item("https://momobil.id/news/wp-content/uploads/2018/12/mencari-toko-spare-part-mobil-terbaik-1024x576.jpg", "Ccccc", 3000000))
+        ItemsModel.add(Market_Item("https://media.suara.com/pictures/653x366/2020/09/01/75434-axioo-mypc-u23.jpg", "Bbbbb", 1000000))
+        ItemsModel.add(Market_Item("https://images-na.ssl-images-amazon.com/images/I/71cngLX2xuL.__AC_SX300_SY300_QL70_FMwebp_.jpg", "Ccccc", 3000000))
         ItemsModel.add(Market_Item("https://www.pandaindoteknik.co.id/wp-content/uploads/2019/06/Spare-Parts-Cover.jpg", "Dddddd", 100000))
-        ItemsModel.add(Market_Item("https://5.imimg.com/data5/QD/DV/MY-17920646/perfect-gen-set-eicher-engine-250x250.jpg", "Eeeeee", 150000))
-        ItemsModel.add(Market_Item("https://www.thecronutproject.com/wp-content/uploads/2021/01/Sparepart-motor.jpg", "Fffffff", 15000))
+        ItemsModel.add(Market_Item("https://media.suara.com/pictures/653x366/2020/09/01/75434-axioo-mypc-u23.jpg", "Eeeeee", 150000))
+        ItemsModel.add(Market_Item("https://asia.playstation.com/content/dam/pscom/hk/latest-news/2020/202009-ps5-news/ps5-prices.jpg", "Fffffff", 15000))
 
         //tampilkan data item ke dalam view dgn memanggil fungsi
         //ItemDetails yg ad pd MarketInterface dgn mengirimkan modelnya
