@@ -2,6 +2,7 @@ package com.example.latber.sharePreferences
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.example.latber.activities.KEY_COIN_REWARDS
 import com.example.latber.activities.KEY_EMAIL
 import com.example.latber.activities.KEY_PASS
 
@@ -43,6 +44,15 @@ class SharePrefHelper(context: Context, fileName: String) {
                 it.putString(KEY_PASS, value)
             }
         }
+
+    var Rewardcoin: Int?
+        get() = myPreferences.getInt(KEY_COIN_REWARDS, 0)
+        set(value){
+            myPreferences.editMe {
+                it.putInt(KEY_COIN_REWARDS, value!!.toInt())
+            }
+        }
+
     //shareprefdb
     private val keyPref = "FIRST_RUN"
     private var mySharePref : SharedPreferences =
