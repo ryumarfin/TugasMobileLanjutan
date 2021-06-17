@@ -45,14 +45,6 @@ class SharePrefHelper(context: Context, fileName: String) {
             }
         }
 
-    var Rewardcoin: Int?
-        get() = myPreferences.getInt(KEY_COIN_REWARDS, 0)
-        set(value){
-            myPreferences.editMe {
-                it.putInt(KEY_COIN_REWARDS, value!!.toInt())
-            }
-        }
-
     //shareprefdb
     private val keyPref = "FIRST_RUN"
     private var mySharePref : SharedPreferences =
