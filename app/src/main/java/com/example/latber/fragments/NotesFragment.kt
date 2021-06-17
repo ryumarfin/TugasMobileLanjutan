@@ -158,8 +158,11 @@ class NotesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //load Banner Ads
+        //Banner Ad
+        //inisialisasi object MobileAds untuk dapat menampilkan banner ads.
         MobileAds.initialize(context) {}
+        //muat iklan dengan mengirimkan AdRequest yang berisi info untuk
+        // mengambil iklan dari google ad manager.
         adView.loadAd(AdRequest.Builder().build())
         adView.adListener = object : AdListener() {}
 

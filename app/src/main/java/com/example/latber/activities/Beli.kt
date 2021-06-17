@@ -30,11 +30,7 @@ class beli : AppCompatActivity() {
     var mAlarmManager : AlarmManager? = null
 
     //inisialisasi var mInterAds
-    private var mInterAds : InterstitialAd? = null
-//    val AdsLength = 3000L
-    var mCountDownTimer : CountDownTimer? = null
-    var mAdIsLoading = false
-//    var mTimerMilliseconds = 0L
+    var mInterAds : InterstitialAd? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -110,100 +106,65 @@ class beli : AppCompatActivity() {
 
     }
 
+    //fungsi ini berfungsi untuk memuat iklan
     fun loadAd(){
+        //inisialisasi adRequest agar dapat mengambil iklan dari google ad manager.
         var adRequest = AdRequest.Builder().build()
-
+        //setelah itu, untuk memuat iklan, kita panggil load dan kirimkan parameter yg dibutuhkan.
+        //InterstitialAdLoadCallback akan digunakan untuk menerima iklan yang berhasil dimuat atau menerima error
         InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712",
             adRequest, object : InterstitialAdLoadCallback() {
-                //ketika iklan gagal di Load
+                //ketika iklan gagal di Load, function ini akan dijalankan
                 override fun onAdFailedToLoad(p0: LoadAdError) {
                     Log.d("Interstitial Ads", p0?.message)
                     Toast.makeText(this@beli, "Iklan gagal di Load", Toast.LENGTH_SHORT).show()
+                    //karena iklan gagal dimuat, maka kita kembalikan null
                     mInterAds = null
-                    mAdIsLoading = false
                 }
 
-                //ketika iklan berhasil di Load
+                //ketika iklan berhasil di Load, function ini akan dijalankan
                 override fun onAdLoaded(p0: InterstitialAd) {
                     super.onAdLoaded(p0)
                     Log.d("Interstitial Ads", "Interstitial Ads berhasil di Load")
+                    //kembalikan iklan yang berhasil dimuat untuk ditampilkan nantinya
                     mInterAds = p0
-                    mAdIsLoading = false
                 }
             })
     }
 
-//    //fungsi utk menghitung waktunya agar ada waktu jeda untuk menampilkan Ads
-//    private fun createTimer (ms : Long){
-//        mCountDownTimer?.cancel()
-//        mCountDownTimer = object : CountDownTimer(ms, 50) {
-//            override fun onTick(millisUntilFinished: Long) {
-////                mTimerMilliseconds = millisUntilFinished
-////                timer.text = "seconds remaining: ${ millisUntilFinished / 1000 + 1 }"
-//            }
-//
-//            override fun onFinish() {
-//            }
-//        }
-//    }
-
-    // fungsi utk menampilkan iklan
+    //fungsi utk menampilkan iklan
     private fun showInterstitial() {
+        //lakukan pengeeckan terlebih dahulu apakah ada iklan yang dapat di tampilkan
         if (mInterAds != null) {
+            //buat FullScreenContentCallback untuk dipanggil ketika iklan ditampilkan dan ditutup
             mInterAds?.fullScreenContentCallback = object : FullScreenContentCallback() {
+                //ketika user menutup iklan
                 override fun onAdDismissedFullScreenContent() {
                     Log.d("Interstitial Ads", "Ad was dismissed.")
-                    // Don't forget to set the ad reference to null so you
-                    // don't show the ad a second time.
+                    //jangan lupa mengganti mInterAds menjadi null agar iklan tidak ditampilakn 2x
                     mInterAds = null
+                    //setelah itu, jangan lupa utk memuat iklan baru lagi
                     loadAd()
                 }
-
+                //ketika iklan gagal ditampilkan
                 override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
                     Log.d("Interstitial Ads", "Ad failed to show.")
-                    // Don't forget to set the ad reference to null so you
-                    // don't show the ad a second time.
+                    //jgn lupa mengganti mInterAds menjadi null agar iklan tidak ditampilakn lagi
                     mInterAds = null
                 }
-
+                //ketika iklan  ditampilkan
                 override fun onAdShowedFullScreenContent() {
                     Log.d("Interstitial Ads", "Ad showed fullscreen content.")
-                    // Called when ad is dismissed.
                 }
             }
+            //tampilkan interstitial ads nya
             mInterAds?.show(this)
-        } else {
-            Log.d("Interstitial Ads", "Ad wasn't loaded.")
-
-//            Toast.makeText(this, "Ad wasn't loaded.", Toast.LENGTH_SHORT).show()
-            reqNewAds()
         }
-    }
-
-    private fun reqNewAds() {
-        if (!mAdIsLoading && mInterAds == null) {
-            mAdIsLoading = true
+        else {
+            Log.d("Interstitial Ads", "Ad wasn't loaded.")
+//            Toast.makeText(this, "Ad wasn't loaded.", Toast.LENGTH_SHORT).show()
+            //karena tidak ada iklan, maka kita akan memuat iklan baru
             loadAd()
         }
-//        resume(AdsLength)
-    }
-
-//    private fun resume(milliseconds: Long) {
-//        mTimerMilliseconds = milliseconds
-//        createTimer(milliseconds)
-//        mCountDownTimer?.start()
-//    }
-
-    // Resume the game if it's in progress.
-    public override fun onResume() {
-        super.onResume()
-//        resume(mTimerMilliseconds)
-        showInterstitial()
-    }
-
-    // Cancel the timer if the game is paused.
-    public override fun onPause() {
-//        mCountDownTimer?.cancel()
-        super.onPause()
     }
 }
