@@ -4,6 +4,7 @@ package com.example.latber.fragments
 import android.app.job.JobInfo
 import android.app.job.JobScheduler
 import android.content.*
+import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -21,6 +22,7 @@ import com.example.latber.R
 import com.example.latber.activities.done
 import com.example.latber.data.Quotes
 import com.example.latber.jobScheduler.QuotesScheduler
+import com.example.latber.sharePreferences.DataSharedPref
 import com.example.latber.sharePreferences.SharePrefHelper
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
@@ -36,21 +38,15 @@ import kotlinx.android.synthetic.main.fragment_profile.view.*
 import java.io.File
 
 //nama file shared preference
-private val PrefFileName1 = "MYFILEPREF01"
+private val PrefFileName = "MYFILEPREFDATA"
 
 class ProfileFragment : Fragment() {
 
-
-
     //inisialisasi var mRewardVid
     private var mRewardVid : RewardedAd?= null
-    //    val AdsLength = 3000L
-    var mCountDownTimer : CountDownTimer? = null
-    var mAdIsLoading = false
-//    var mTimerMilliseconds = 0L
 
     var coin :Int  = 0
-
+    var member : Boolean = false
 
 
 //    //definisi JobID
@@ -69,20 +65,27 @@ class ProfileFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val fa = File("/data/data/com.example.latber/shared_prefs/"+ PrefFileName1 +".xml")
+        val fa = File("/data/data/com.example.latber/shared_prefs/"+ PrefFileName +".xml")
         //cek apakah file sharedpref exist
         if (fa.exists()) {
-            Log.d("TAG_PROFILE", PrefFileName1 + " exist")
+            Log.d("TAG_PROFILE", PrefFileName + " exist")
 
             //inisialisasi
-            var mySharedHelper = SharePrefHelper(context!!, PrefFileName1)
+            var mySharedPref = DataSharedPref(context!!, PrefFileName)
             //mengambil data dari file sharedpref
-            coin = mySharedHelper.Rewardcoin!!
+            coin = mySharedPref.Rewardcoin!!
+            member = mySharedPref.VIP_member!!
 
         }
         //jika file tidak ditemukan
-        else
-            Log.d("TAG_PROFILE", PrefFileName1 + " no exist")
+        else {
+            Log.d("TAG_PROFILE", PrefFileName + " no exist")
+            //simpan dan panggil SharePrefHelper
+            var mySharedPref = DataSharedPref(context!!, PrefFileName)
+            //mengambil data dari file sharedpref
+            coin = mySharedPref.Rewardcoin!!
+            member = mySharedPref.VIP_member!!
+        }
     }
 
     override fun onCreateView(
@@ -94,28 +97,24 @@ class ProfileFragment : Fragment() {
         var btnLogout = objView.findViewById<Button>(R.id.btn_logout)
         var btnWatchAds = objView.findViewById<Button>(R.id.btn_watchAds_profile)
         var tv_coin = objView.findViewById<TextView>(R.id.tv_coin_profile)
-
-//        val fa = File("/data/data/com.example.latber/shared_prefs/"+ PrefFileName1 +".xml")
-//        //cek apakah file sharedpref exist
-//        if (fa.exists()) {
-//            Log.d("TAG_PROFILE", PrefFileName1 + " exist")
-//
-//            //inisialisasi
-//            var mySharedHelper = SharePrefHelper(context!!, PrefFileName1)
-//            //mengambil data dari file sharedpref
-//            var coin = mySharedHelper.coin
-            tv_coin.setText(coin.toString())
-//
-//        }
-//        //jika file tidak ditemukan
-//        else
-//            Log.d("TAG_PROFILE", PrefFileName1 + " no exist")
+        var tv_member = objView.findViewById<TextView>(R.id.tv_member)
+        var btnUpgrade = objView.findViewById<Button>(R.id.btn_upgrade)
 
 
+        tv_coin.setText(coin.toString())
+
+        //cek apakah user memiliki member VIP atau tidak, jika mmeber VIP maka true
+        if(member) {
+            tv_member.setText("Member : VIP")
+            btnUpgrade.setText("Cancel")
+        }
+        else {
+            tv_member.setText("Member : Standard")
+            btnUpgrade.setText("Upgrade")
+            //Load Rewarded Ads
+            loadAd()
+        }
         btnWatchAds.isEnabled = false
-
-        //Load Rewarded Ads
-        loadAd()
 
 
 
@@ -125,9 +124,29 @@ class ProfileFragment : Fragment() {
         }
 
         btnWatchAds.setOnClickListener{
+            //ketika btn watch di klik, maka panggil function untuk menampilkan rewarded ads
             showRewardAds()
         }
 
+        btnUpgrade.setOnClickListener{
+            var mySharedPref = DataSharedPref(context!!, PrefFileName)
+            //cek apakah user memiliki member VIP atau tidak, jika mmeber VIP maka true
+            if(member) {
+                member = false
+                tv_member.setText("Member : Standard")
+                mySharedPref.VIP_member = member
+                btnUpgrade.setText("Upgrade")
+                btnWatchAds.isEnabled = false
+                //Load Rewarded Ads
+                loadAd()
+            }
+            else {
+                member = true
+                tv_member.setText("Member : VIP")
+                mySharedPref.VIP_member = member
+                btnUpgrade.setText("Cancel")
+            }
+        }
 
 
 
@@ -168,10 +187,12 @@ class ProfileFragment : Fragment() {
 //    }
 
 
-    //Load Reward Ads
+    //Load Rewarded Ads
     fun loadAd(){
+        //inisialisasi adRequest agar dapat mengambil iklan dari google ad manager.
         var adRequest = AdRequest.Builder().build()
-
+        //setelah itu, untuk memuat iklan, kita panggil load dan kirimkan parameter yg dibutuhkan.
+        //RewardedAdLoadCallback akan digunakan untuk menerima iklan yang berhasil dimuat atau menerima error
         RewardedAd.load(context, "ca-app-pub-3940256099942544/5224354917",
                 adRequest, object : RewardedAdLoadCallback() {
             //ketika iklan gagal di Load
@@ -179,8 +200,9 @@ class ProfileFragment : Fragment() {
                 super.onAdFailedToLoad(p0)
                 Log.d("Rewarded Ads", p0?.message)
                 Toast.makeText(context, "Iklan gagal di Load", Toast.LENGTH_SHORT).show()
+                //karena iklan gagal dimuat, maka kita kembalikan null
                 mRewardVid = null
-                mAdIsLoading = false
+                //atur agar btn watch tidak dapat diklik karena tidak ada iklan yang dapat ditampilkan nantinya
                 btn_watchAds_profile.isEnabled = true
             }
 
@@ -188,96 +210,60 @@ class ProfileFragment : Fragment() {
             override fun onAdLoaded(p0: RewardedAd) {
                 super.onAdLoaded(p0)
                 Log.d("Rewarded Ads", "Rewarded Ads berhasil di Load")
+                //atur btn watch kembali bisa di klik agar user dpt menonton iklan
                 btn_watchAds_profile.isEnabled = true
+                //kembalikan iklan yang berhasil dimuat untuk ditampilkan nantinya
                 mRewardVid = p0
-                mAdIsLoading = false
             }
         })
     }
 
-
-//    //fungsi utk menghitung waktunya agar ada waktu jeda untuk menampilkan Ads
-//    private fun createTimer (ms : Long){
-//        mCountDownTimer?.cancel()
-//        mCountDownTimer = object : CountDownTimer(ms, 50) {
-//            override fun onTick(millisUntilFinished: Long) {
-////                mTimerMilliseconds = millisUntilFinished
-////                timer.text = "seconds remaining: ${ millisUntilFinished / 1000 + 1 }"
-//            }
-//
-//            override fun onFinish() {
-//            }
-//        }
-//    }
-
-
     // fungsi utk menampilkan iklan
     private fun showRewardAds() {
+        //inisialisasi var ReawrdCoin untuk menampilkna jumlah coin yang telah dikumpukna user
         var RewardCoin = coin
+        //lakukan pengeeckan terlebih dahulu apakah ada iklan yang dapat di tampilkan
         if (mRewardVid != null) {
+            //buat FullScreenContentCallback untuk dipanggil ketika iklan ditampilkan dan ditutup
             mRewardVid?.fullScreenContentCallback = object : FullScreenContentCallback() {
+                //ketika user menutup iklan
                 override fun onAdDismissedFullScreenContent() {
                     Log.d("Rewarded Ads", "Ad was dismissed.")
-                    // Don't forget to set the ad reference to null so you
-                    // don't show the ad a second time.
+                    //jangan lupa mengganti mRewardVid menjadi null agar iklan tidak ditampilakn 2x
                     mRewardVid = null
+                    //atur btn agar tidak dapat diklik
                     btn_watchAds_profile.isEnabled = false
+                    //setelah itu, jangan lupa utk memuat iklan baru lagi
                     loadAd()
                 }
-
+                //ketika iklan gagal ditampilkan
                 override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
                     Log.d("Rewarded Ads", "Ad failed to show.")
-                    // Don't forget to set the ad reference to null so you
-                    // don't show the ad a second time.
+                    //jgn lupa mengganti mRewardVid menjadi null agar iklan tidak ditampilakn lagi
                     mRewardVid = null
                 }
-
+                //ketika iklan  ditampilkan
                 override fun onAdShowedFullScreenContent() {
                     Log.d("Rewarded Ads", "Ad showed fullscreen content.")
-                    // Called when ad is dismissed.
                 }
             }
+            //tampilkan Rewarded Ads nya
             mRewardVid?.show(activity, OnUserEarnedRewardListener() {
+                //setelah menonton iklan, coin user akan bertambah 100
                 RewardCoin += 100
                 coin = RewardCoin
+                //update coin terbaru user
                 tv_coin_profile.setText(RewardCoin.toString())
-                var mySharedHelper = SharePrefHelper(context!!, PrefFileName1)
-                //mengambil data dari file sharedpref
-                mySharedHelper.Rewardcoin = coin
+                var mySharedPref = DataSharedPref(context!!, PrefFileName)
+                //update data terbaru ke file sharedpref
+                mySharedPref.Rewardcoin = coin
             })
         } else {
             Log.d("Rewarded Ads", "Ad wasn't loaded.")
-
-            Toast.makeText(context, "Ad wasn't loaded.", Toast.LENGTH_SHORT).show()
-            reqNewAds()
-        }
-    }
-
-    private fun reqNewAds() {
-        if (!mAdIsLoading && mRewardVid == null) {
-            mAdIsLoading = true
+//            Toast.makeText(context, "Ad wasn't loaded.", Toast.LENGTH_SHORT).show()
+            //karena tidak ada iklan, maka kita akan memuat iklan baru
             loadAd()
         }
-//        resume(AdsLength)
-    }
-
-//    private fun resume(milliseconds: Long) {
-//        mTimerMilliseconds = milliseconds
-//        createTimer(milliseconds)
-//        mCountDownTimer?.start()
-//    }
-
-    // Resume the game if it's in progress.
-    public override fun onResume() {
-        super.onResume()
-//        resume(mTimerMilliseconds)
-//        showInterstitial()
-    }
-
-    // Cancel the timer if the game is paused.
-    public override fun onPause() {
-//        mCountDownTimer?.cancel()
-        super.onPause()
     }
 
 }

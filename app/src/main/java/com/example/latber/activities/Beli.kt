@@ -19,12 +19,15 @@ import com.example.latber.MyAlarmManager
 import com.example.latber.R
 import com.example.latber.data.Market_Item
 import com.example.latber.service.InternalStorageDownloadService
+import com.example.latber.sharePreferences.DataSharedPref
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import kotlinx.android.synthetic.main.activity_beli.*
 import java.util.*
 
+//nama file shared preference
+private val PrefFileName = "MYFILEPREFDATA"
 
 class beli : AppCompatActivity() {
     var mAlarmManager : AlarmManager? = null
@@ -32,12 +35,23 @@ class beli : AppCompatActivity() {
     //inisialisasi var mInterAds
     var mInterAds : InterstitialAd? = null
 
+    var member : Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_beli)
 
-        //Load Interstitial Ads
-        loadAd()
+        //simpan dan panggil SharePrefHelper
+        var mySharedPref = DataSharedPref(this, PrefFileName)
+        //mengambil data dari file sharedpref
+        member = mySharedPref.VIP_member!!
+
+        //cek apakah user merupakan member vip atau bukan
+        if(!member){
+            //jika bukan member vip maka load iklannya
+            //Load Interstitial Ads
+            loadAd()
+        }
 
         // membuat object untuk mengambil Parcelable dari class Market_Item dengan memasukkan key-nya
         // var item akan menampung data yang dikirim dari Market_Items_Adapter
@@ -70,8 +84,11 @@ class beli : AppCompatActivity() {
         //disini ada changes
         //save to internal storage
         save_to_internal.setOnClickListener {
-            //memunculkan Interstitial Ads ketika user melakukan klik utk menyimpan gambar
-            showInterstitial()
+            //cek apakah user memiliki member vip atau tidak
+            if(!member){
+                //jika tidak, munculkan Interstitial Ads ketika user melakukan klik utk menyimpan gambar
+                showInterstitial()
+            }
 
             //mulai JobIntentService "InternalStorageDownloadService" dengan membentuk Intent dan
             //kemudian daftarkan InternalStorageDownloadService pada antrian menggunakan enqueueWork() untuk memulainya

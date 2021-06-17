@@ -14,6 +14,7 @@ import com.example.latber.FirstRunSharedPref
 import com.example.latber.PreloadActivity
 import com.example.latber.R
 import com.example.latber.data.Notes
+import com.example.latber.sharePreferences.DataSharedPref
 import com.example.latber.sql.DBHelper
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
@@ -33,6 +34,9 @@ private const val ARG_PARAM2 = "param2"
  * Use the [HistoryFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+//nama file shared preference
+private val PrefFileName = "MYFILEPREFDATA"
+
 class NotesFragment : Fragment() {
 
     //inisialisasi DBHelper
@@ -40,10 +44,15 @@ class NotesFragment : Fragment() {
     //inisialisaasi Firstsahrepreferences
     var myFirstRunSharedPref : FirstRunSharedPref?=null
 
+    var member : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //simpan dan panggil SharePrefHelper
+        var mySharedPref = DataSharedPref(context!!, PrefFileName)
+        //mengambil data dari file sharedpref
+        member = mySharedPref.VIP_member!!
     }
 
     override fun onCreateView(
@@ -158,14 +167,16 @@ class NotesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //Banner Ad
-        //inisialisasi object MobileAds untuk dapat menampilkan banner ads.
-        MobileAds.initialize(context) {}
-        //muat iklan dengan mengirimkan AdRequest yang berisi info untuk
-        // mengambil iklan dari google ad manager.
-        adView.loadAd(AdRequest.Builder().build())
-        adView.adListener = object : AdListener() {}
-
+        //jika tidak ada member VIP, maka tampilkan iklannya
+        if(!member){
+            //Banner Ad
+            //inisialisasi object MobileAds untuk dapat menampilkan banner ads.
+            MobileAds.initialize(context) {}
+            //muat iklan dengan mengirimkan AdRequest yang berisi info untuk
+            // mengambil iklan dari google ad manager.
+            adView.loadAd(AdRequest.Builder().build())
+            adView.adListener = object : AdListener() {}
+        }
     }
 
     override fun onResume() {
